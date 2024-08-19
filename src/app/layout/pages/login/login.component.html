@@ -1,0 +1,95 @@
+<div
+  class="w-3/4 my-9 h-[60dvh] m-auto flex flex-col flex-nowrap justify-center"
+>
+  <h1 class="text-center text-emerald-700 font-semibold text-3xl">login!</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="submitEvent()" class="mt-5">
+    <!-- Error check -->
+    @if (errorMSG) {
+    <div class="bg-red-400 rounded-lg my-3">
+      <p class="text-sm py-2 px-3">Brain ain't braining... {{ errorMSG }}</p>
+    </div>
+    }
+    <!-- email -->
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="email"
+        type="email"
+        name="floating_email"
+        id="floating_email"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="floating_email"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Email address</label
+      >
+      <!-- validation -->
+      <div class="bg-red-400 rounded-lg my-3">
+        @if (loginForm.get('email')?.touched &&
+        loginForm.get('email')?.errors?.['required']) {
+        <p class="text-sm py-2 px-3">This is a required field</p>
+        } @else if (loginForm.get('email')?.errors?.['email']) {
+        <p class="text-sm py-2 px-3">This is not a valid email</p>
+        <p class="text-sm py-2 px-3">example&#64;example.com</p>
+        }
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="password"
+        type="password"
+        name="floating_password"
+        id="floating_password"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-emerald-600 peer"
+        placeholder=" "
+        required
+      />
+      <label
+        for="floating_password"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Password</label
+      >
+      <!-- validation -->
+      <div class="bg-red-400 rounded-lg my-3">
+        @if (loginForm.get('password')?.touched &&
+        loginForm.get('password')?.errors?.['required']) {
+        <p class="text-sm py-2 px-3">This is a required field</p>
+        } @else if (loginForm.get('password')?.touched &&
+        loginForm.get('password')?.errors?.['pattern']) {
+        <p class="text-sm py-2 px-3">
+          The password should be at-least <br />
+          -8 characters long <br />
+          - 1 capital letter <br />
+          - 1 small letter <br />
+          - a number <br />
+          and a special character "&#64;#$%^&+="
+        </p>
+        }
+      </div>
+    </div>
+
+    <div class="text-center">
+      <a
+        class="text-blue-600 underline hover:cursor-pointer hover:text-emerald-700 transition-all duration-300 ease-in-out"
+        >Forget Password?</a
+      >
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid"
+      class="bg-emerald-800 mt-10 py-2 px-3 w-full md:w-2/12 rounded-lg block m-auto disabled:bg-gray-500 disabled:cursor-not-allowed text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
+    >
+      <!-- Loading check -->
+      @if (Loading) {
+      <span><i class="fa-solid fa-spinner fa-spin"></i></span>
+      } @else {
+      <span>login</span>
+      }
+    </button>
+  </form>
+</div>
