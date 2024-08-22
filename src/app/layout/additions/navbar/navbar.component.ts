@@ -5,7 +5,9 @@ import { AuthService } from '../../../shared/services/auth/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive ],
+  //Just becuse Angular does't like my icons wither it's inside <i> or <svg> it just hates font Awesome icons i guess
+  host: {ngSkipHydration: 'true'},
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

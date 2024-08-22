@@ -1,4 +1,3 @@
-import { AppComponent } from './../../../app.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
@@ -8,6 +7,9 @@ import {
   success,
   fail,
   Decode,
+  email,
+  Code,
+  responseData,
 } from '../../interfaces/auth-data';
 import { Enviroment } from '../../../Base/Enviroment';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -28,14 +30,15 @@ export class AuthService {
     private _Router: Router,
     @Inject(PLATFORM_ID) platformId: Object
   ) {
-    //Store the last visited page in the session storage
-    this._Router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        sessionStorage.setItem('currentPage', event.urlAfterRedirects);
-      }
-    });
-
     if (isPlatformBrowser(platformId)) {
+      //Store the last visited page in the session storage
+      //somehow this useless code saved me some time and effort by working it in conjunction with the code in the product-details.component.ts
+      this._Router.events.subscribe((event) => {
+        if (event instanceof NavigationEnd) {
+          sessionStorage.setItem('currentPage', event.urlAfterRedirects);
+        }
+      });
+
       //Handle the case when the user refresh the page
       const lastVisitedPage = sessionStorage.getItem('currentPage');
       if (lastVisitedPage) {
@@ -67,6 +70,24 @@ export class AuthService {
     );
   }
 
+  //Ping the API to send verification code to the user
+  getCode(data: email): Observable<responseData> {
+    return this._HttpClient.post<responseData>(
+      `${Enviroment.BaseURL}/api/v1/auth/forgotPasswords`,
+      data
+    );
+  }
+
+  //Ping the API with the verification code to reset the password
+  FresetCode(data: Code): Observable<responseData> {
+    // console.log(data);
+
+    return this._HttpClient.post<responseData>(
+      `${Enviroment.BaseURL}/api/v1/auth/verifyResetCode`,
+      data
+    );
+  }
+
   //Decode the user data from the token
   decodeUserData() {
     const token = JSON.stringify(localStorage.getItem('userToken'));
@@ -80,5 +101,13 @@ export class AuthService {
     localStorage.removeItem('userToken');
     this.userData.next(null);
     this._Router.navigate(['/login']);
+  }
+
+  //Ping the API to update the user password
+  resetMyPassword(data: LoginData): Observable<success> {
+    return this._HttpClient.put<success>(
+      `${Enviroment.BaseURL}/api/v1/auth/resetPassword`,
+      data
+    );
   }
 }

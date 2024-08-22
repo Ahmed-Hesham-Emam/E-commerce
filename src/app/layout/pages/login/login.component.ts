@@ -6,12 +6,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { ResetPasswordComponent } from '../../additions/reset-password/reset-password.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ResetPasswordComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

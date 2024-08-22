@@ -8,6 +8,8 @@ import { RegisterComponent } from './layout/pages/register/register.component';
 import { NotfoundComponent } from './layout/additions/notfound/notfound.component';
 import { ProductsComponent } from './layout/pages/products/products.component';
 import { authGuardGuard } from './shared/guards/auth-guard.guard';
+import { ResetPasswordComponent } from './layout/additions/reset-password/reset-password.component';
+import { ProductDetailsComponent } from './layout/additions/product-details/product-details.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,7 +31,11 @@ export const routes: Routes = [
 
   { path: 'login', component: LoginComponent, title: 'Login' },
 
+  {path: 'reset-password', component: ResetPasswordComponent , title: 'Reset Password'},
+
   { path: 'register', component: RegisterComponent, title: 'Register' },
+
+  {path: 'productdetails/:id', component: ProductDetailsComponent, title: 'productDetails'},
 
   { path: '**', component: NotfoundComponent, title: 'Erorr 404' },
 ];

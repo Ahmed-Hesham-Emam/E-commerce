@@ -4,9 +4,8 @@ import {
   Inject,
   Injectable,
   PLATFORM_ID,
-  OnInit,
 } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './layout/additions/navbar/navbar.component';
 import { FooterComponent } from './layout/additions/footer/footer.component';
 
