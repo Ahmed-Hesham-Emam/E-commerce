@@ -43,7 +43,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="home"
             routerLinkActive="bg-emerald-800 text-white"
-            >{{ "navbar.Home" | translate }}</a
+            >{{ 'navbar.Home' | translate }}</a
           >
         </li>
         <li>
@@ -51,7 +51,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="categories"
             routerLinkActive="bg-emerald-800 text-white"
-            >{{ "navbar.Categories" | translate }}</a
+            >{{ 'navbar.Categories' | translate }}</a
           >
         </li>
         <li>
@@ -59,7 +59,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="brands"
             routerLinkActive="bg-emerald-800 text-white"
-            >{{ "navbar.Brands" | translate }}</a
+            >{{ 'navbar.Brands' | translate }}</a
           >
         </li>
         @if(isLoggedIn){
@@ -68,7 +68,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="allorders"
             routerLinkActive="bg-emerald-800 text-white"
-            >{{ "navbar.All Orders" | translate }}</a
+            >{{ 'navbar.All Orders' | translate }}</a
           >
         </li>
 
@@ -312,7 +312,7 @@
       <a
         (click)="_AuthService.logOut()"
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
-        >{{ "navbar.Logout" | translate }}</a
+        >{{ 'navbar.Logout' | translate }}</a
       >
 
       } @else {
@@ -320,14 +320,14 @@
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
         routerLink="register"
         routerLinkActive="bg-emerald-800 text-white"
-        >{{ "navbar.Register" | translate }}</a
+        >{{ 'navbar.Register' | translate }}</a
       >
 
       <a
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
         routerLink="login"
         routerLinkActive="bg-emerald-800 text-white"
-        >{{ "navbar.Login" | translate }}</a
+        >{{ 'navbar.Login' | translate }}</a
       >
       }
     </div>
