@@ -63,7 +63,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.wishlistCheck();
+      if (localStorage.getItem('userToken') !== '') {
+        this.wishlistCheck();
+      }
     }
     this.getAllProducts(this.currentPage);
   }
