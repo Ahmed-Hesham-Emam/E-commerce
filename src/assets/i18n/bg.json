@@ -1,0 +1,75 @@
+{
+  "navbar": {
+    "Home": "Начало",
+    "Categories": "Категории",
+    "Brands": "Марки",
+    "All Orders": "Всички поръчки",
+    "Register": "Регистрация",
+    "Login": "Вход",
+    "Logout": "Изход"
+  },
+
+  "Login": {
+    "login": "Вход",
+    "Email address": "Имейл адрес",
+    "Password": "Парола",
+    "Forget Password?": "Забравена парола?",
+    "This is a required field": "Това поле е задължително",
+    "This is not a valid email": "Това не е валиден имейл",
+    "Email example": "example@example.com",
+    "Password description": "Паролата трябва да съдържа поне:\n- 8 символа\n- 1 главна буква\n- 1 малка буква\n- число\nи специален символ '@#$%^&+='"
+  },
+
+  "Forget Password": {
+    "Reset Password!": "Нулиране на паролата!",
+    "Email address": "Имейл адрес",
+    "Password": "Парола",
+    "Confirm password": "Потвърди паролата",
+    "get code": "получаване на код",
+    "Reset Code": "Нулиране на кода"
+  },
+
+  "Register": {
+    "Register now": "Регистрирай се сега",
+    "Name": "Име",
+    "Email address": "Имейл адрес",
+    "Password": "Парола",
+    "Confirm password": "Потвърди паролата",
+    "phone number": "телефонен номер",
+    "Register": "Регистрация",
+    "This is a required field": "Това поле е задължително",
+    "This is not a valid email": "Това не е валиден имейл",
+    "Email example": "example@example.com",
+    "description": "Паролата трябва да съдържа поне:\n- 8 символа\n- 1 главна буква\n- 1 малка буква\n- число\nи специален символ '@#$%^&+='"
+  },
+
+  "Popular category": "Популярни категории",
+
+  "My orders": "Моите поръчки",
+
+  "Order ID": "Номер на поръчка",
+
+  "Price": "Цена",
+  "Pament Method": "Метод на плащане",
+  "Shipping Address:": "Адрес за доставка:",
+  "View details": "Преглед на детайли",
+
+  "Shopping Cart": "Пазарска количка",
+  "Order summary": "Обобщение на поръчката",
+  "Total items": "Общо артикули",
+  "Total price": "Обща цена",
+
+  "Check Out!": "Плащане!",
+  "address": "адрес",
+  "phone": "телефон",
+  "city": "град",
+  "Pay with Credit Card": "Плащане с кредитна карта",
+  "Cash on delivery": "Наложен платеж",
+  "Proceed to Checkout": "Продължете към плащане",
+  "Continue Shopping": "Продължете с пазаруването",
+  "or": "или",
+  "add to cart": "добави в количката",
+  "remove": "премахни",
+  "Payment Method": "Метод на плащане",
+  "Empty Cart": "Изпразни количката"
+}

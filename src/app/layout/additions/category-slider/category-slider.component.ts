@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../shared/services/category/category.service';
-import { Category } from '../../../shared/interfaces/product';
+import { category } from '../../../shared/interfaces/category';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-category-slider',
   standalone: true,
-  imports: [CarouselModule],
+  imports: [CarouselModule , TranslateModule ],
   templateUrl: './category-slider.component.html',
   styleUrl: './category-slider.component.scss',
 })
 export class CategorySliderComponent implements OnInit {
-
   customOptions: OwlOptions = {
     loop: true,
+    rtl: true,
     mouseDrag: true,
     touchDrag: true,
     pullDrag: false,
@@ -23,24 +23,25 @@ export class CategorySliderComponent implements OnInit {
     navText: ['', ''],
     responsive: {
       0: {
-        items: 2
+        items: 2,
       },
       400: {
-        items: 4
+        items: 4,
       },
       740: {
-        items: 6
+        items: 6,
       },
       940: {
-        items: 7
-      }
+        items: 7,
+      },
     },
-    nav: true
-  }
+    nav: true,
+    autoplay: true,
+    autoplayTimeout: 5000,
+    autoplayHoverPause: true,
+  };
 
-  isLoading: boolean = false;
-  categryList!: Category[];
-
+  categryList!: category[];
 
   constructor(private _CategoryService: CategoryService) {}
 
@@ -49,19 +50,15 @@ export class CategorySliderComponent implements OnInit {
   }
 
   getAllCategories() {
-    this.isLoading = true;
     this._CategoryService.getAllCategories().subscribe({
-      next: response => {
+      next: (response) => {
         // console.log(response.data);
         this.categryList = response.data;
-        this.isLoading = false;
       },
 
-      error: err => {
+      error: (err) => {
         // console.log(err);
-        this.isLoading = false;
       },
-
     });
   }
 }

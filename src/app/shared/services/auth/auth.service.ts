@@ -25,28 +25,30 @@ export class AuthService {
     null
   );
 
+  decoded!: Decode | null;
+
   constructor(
     private _HttpClient: HttpClient,
     private _Router: Router,
     @Inject(PLATFORM_ID) platformId: Object
   ) {
     if (isPlatformBrowser(platformId)) {
-      //Store the last visited page in the session storage
-      //somehow this useless code saved me some time and effort by working it in conjunction with the code in the product-details.component.ts
       this._Router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
           sessionStorage.setItem('currentPage', event.urlAfterRedirects);
         }
       });
 
-      //Handle the case when the user refresh the page
-      const lastVisitedPage = sessionStorage.getItem('currentPage');
-      if (lastVisitedPage) {
-        this._Router.navigate([lastVisitedPage]);
-      } else {
-        this._Router.navigate(['/']);
+      // //Handle the case when the user refresh the page
+      // const lastVisitedPage = sessionStorage.getItem('currentPage');
+      // if (lastVisitedPage) {
+      //   this._Router.navigate([lastVisitedPage]);
+      // } else {
+      //   this._Router.navigate(['/']);
+      // }
+      if (localStorage.getItem('userToken') === null) {
+        localStorage.setItem('userToken', '');
       }
-
       //Decode the user data from the token if the user is logged in
       if (localStorage.getItem('userToken')) {
         this.decodeUserData();
@@ -91,14 +93,17 @@ export class AuthService {
   //Decode the user data from the token
   decodeUserData() {
     const token = JSON.stringify(localStorage.getItem('userToken'));
-    const decoded = jwtDecode<Decode | null>(token);
-    this.userData.next(decoded);
+
+    this.decoded = jwtDecode<Decode | null>(token);
+
+    this.userData.next(this.decoded);
+
     // console.log(this.userData.getValue());
   }
 
   //handle logout
   logOut() {
-    localStorage.removeItem('userToken');
+    localStorage.setItem('userToken', '');
     this.userData.next(null);
     this._Router.navigate(['/login']);
   }

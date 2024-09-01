@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "Home": "Home",
+    "Categories": "Categories",
+    "Brands": "Brands",
+    "All Orders": "All Orders",
+    "Register": "Register",
+    "Login": "Login",
+    "Logout": "Logout"
+  },
+
+  "Login": {
+    "login": "Login",
+    "Email address": "Email address",
+    "Password": "Password",
+    "Forget Password?": "Forget Password?",
+    "This is a required field": "This is a required field",
+    "This is not a valid email": "This is not a valid email",
+    "Email example": "example@example.com",
+    "Password description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='"
+  },
+
+  "Forget Password": {
+    "Reset Password!": "Reset Password!",
+    "Email address": "Email address",
+    "Password": "Password",
+    "Confirm password": "Confirm password",
+    "get code": "get code",
+    "Reset Code": "Reset Code"
+  },
+
+  "Register": {
+    "Register now": "Register now",
+    "Name": "Name",
+    "Email address": "Email address",
+    "Password": "Password",
+    "Confirm password": "Confirm password",
+    "phone number": "phone number",
+    "Register": "Register",
+    "This is a required field": "This is a required field",
+    "This is not a valid email": "This is not a valid email",
+    "Email example": "example@example.com",
+    "description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='"
+  },
+
+  "Popular category": "Popular categories",
+
+  "My orders": "My orders",
+
+  "Order ID": "Order ID",
+
+  "Price": "Price",
+  "Pament Method": "Pament Method",
+  "Shipping Address:": "Shipping Address:",
+  "View details": "View details",
+
+  "Shopping Cart": "Shopping Cart",
+  "Order summary": "Order summary",
+  "Total items": "Total items",
+  "Total price": "Total price",
+
+  "Check Out!": "Check Out!",
+  "address": "address",
+  "phone": "phone",
+  "city": "city",
+  "Pay with Credit Card": "Pay with Credit Card",
+  "Cash on delivery": "Cash on delivery",
+  "Proceed to Checkout": "Proceed to Checkout",
+  "Continue Shopping": "Continue Shopping",
+  "or": "or",
+  "add to cart": "add to cart",
+  "remove": "remove",
+  "Payment Method": "Payment Method",
+  "Empty Cart": "Empty Cart"
+  
+}

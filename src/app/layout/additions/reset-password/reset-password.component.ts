@@ -8,8 +8,7 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../../shared/services/auth/auth.service';
 import { Router } from '@angular/router';
-import { log } from 'console';
-import { LoginComponent } from '../../pages/login/login.component';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reset-password',
@@ -18,8 +17,12 @@ import { LoginComponent } from '../../pages/login/login.component';
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.scss',
 })
-export class ResetPasswordComponent {
+export class ResetPasswordComponent  {
   constructor(private _AuthService: AuthService, private _Router: Router) {}
+  private getCodeSubscription!: Subscription;
+  private verfiyCodeSubscription!: Subscription;
+  private newPasswordSubscription!: Subscription;
+  
 
   // this is just horrible to look at, so i don't....
 
@@ -83,7 +86,7 @@ export class ResetPasswordComponent {
   getCode() {
     this.Loading = true;
     if (this.emailSection.valid) {
-      this._AuthService.getCode(this.emailSection.value).subscribe({
+    this.getCodeSubscription = this._AuthService.getCode(this.emailSection.value).subscribe({
         next: (res) => {
           this.emailInput = this.emailSection.get('email')?.value;
           console.log(this.emailInput);
@@ -102,11 +105,15 @@ export class ResetPasswordComponent {
     }
   }
 
+  getCodeUnsubscribe() {
+    this.getCodeSubscription.unsubscribe();
+  }
+
   //Ping the API with the verification code to reset the password
   resetCodeEvent() {
     this.LoadingReset = true;
     if (this.resetCode.valid) {
-      this._AuthService.FresetCode(this.resetCode.value).subscribe({
+     this.verfiyCodeSubscription = this._AuthService.FresetCode(this.resetCode.value).subscribe({
         next: (res) => {
           // console.log(res);
 
@@ -125,6 +132,10 @@ export class ResetPasswordComponent {
     }
   }
 
+  resetCodeUnsubscribe() {
+    this.verfiyCodeSubscription.unsubscribe();
+  }
+
   //Ping the API with the new password to reset it
 
   newPasswordEvent() {
@@ -134,7 +145,7 @@ export class ResetPasswordComponent {
     if (this.PasswordReset.valid) {
       // console.log(this.PasswordReset.value);
 
-      this._AuthService.resetMyPassword(this.PasswordReset.value).subscribe({
+    this.newPasswordSubscription = this._AuthService.resetMyPassword(this.PasswordReset.value).subscribe({
         next: (res) => {
           // console.log(res);
           this.LoadingReset = false;
@@ -156,5 +167,9 @@ export class ResetPasswordComponent {
         },
       });
     }
+  }
+
+  newPasswordUnsubscribe() {
+    this.newPasswordSubscription.unsubscribe();
   }
 }

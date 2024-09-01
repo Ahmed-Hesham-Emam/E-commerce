@@ -1,10 +1,10 @@
-export interface categryResponse {
+export interface categoryResponse {
   results: number;
   metadata: Metadata;
-  data: categry[];
+  data: category[];
 }
 
-export interface categry {
+export interface category {
   _id: string;
   name: string;
   slug: string;

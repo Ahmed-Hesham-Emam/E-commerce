@@ -1,0 +1,76 @@
+{
+  "navbar": {
+    "Home": "الصفحة الرئيسية",
+    "Categories": "الفئات",
+    "Brands": "العلامات التجارية",
+    "All Orders": "كل الطلبات",
+    "Register": "تسجيل",
+    "Login": "تسجيل الدخول",
+    "Logout": "تسجيل الخروج"
+  },
+
+  "Login": {
+    "login": "تسجيل الدخول",
+    "Email address": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "Forget Password?": "نسيت كلمة المرور؟",
+    "This is a required field": "هذه الخانة مطلوبة",
+    "This is not a valid email": "هذا ليس بريد إلكتروني صالح",
+    "Email example": "example@example.com",
+    "Password description": "يجب أن تكون كلمة المرور على الأقل:\n- 8 أحرف طويلة\n- حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='"
+  },
+
+  "Forget Password": {
+    "Reset Password!": "إعادة تعيين كلمة المرور!",
+    "Email address": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "Confirm password": "تأكيد كلمة المرور",
+    "get code": "الحصول على الكود",
+    "Reset Code": "إعادة تعيين الكود"
+  },
+
+  "Register": {
+    "Register now": "سجل الآن",
+    "Name": "الاسم",
+    "Email address": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "Confirm password": "تأكيد كلمة المرور",
+    "phone number": "رقم الهاتف",
+    "Register": "تسجيل",
+    "This is a required field": "هذه الخانة مطلوبة",
+    "This is not a valid email": "هذا ليس بريد إلكتروني صالح",
+    "Email example": "example@example.com",
+    "description": "يجب أن تكون كلمة المرور على الأقل:\n- 8 أحرف طويلة\n- حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='"
+  },
+
+  "Popular category": "الفئات الشائعة",
+
+  "My orders": "طلباتي",
+
+  "Order ID": "رقم الطلب",
+
+  "Price": "السعر",
+  "Pament Method": "طريقة الدفع",
+  "Shipping Address:": "عنوان الشحن:",
+  "View details": "عرض التفاصيل",
+
+  "Shopping Cart": "عربة التسوق",
+  "Order summary": "ملخص الطلب",
+  "Total items": "إجمالي العناصر",
+  "Total price": "السعر الإجمالي",
+
+  "Check Out!": "الدفع!",
+  "address": "العنوان",
+  "phone": "الهاتف",
+  "city": "المدينة",
+  "Pay with Credit Card": "الدفع ببطاقة الائتمان",
+  "Cash on delivery": "الدفع عند الاستلام",
+  "Proceed to Checkout": "الانتقال إلى الدفع",
+  "Continue Shopping": "مواصلة التسوق",
+  "or": "أو",
+  "add to cart": "أضف إلى السلة",
+  "remove": "إزالة",
+  "Payment Method": "طريقة الدفع",
+  "Empty Cart": "إفراغ السلة"
+
+}

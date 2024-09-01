@@ -40,10 +40,13 @@ export class LoginComponent {
   submitEvent() {
     this.Loading = true;
 
+
     if (this.loginForm.valid) {
       this._AuthService.logIn(this.loginForm.value).subscribe({
         //Handle the response
         next: (res) => {
+          console.log(res);
+          
           // console.log(res);
           this.Loading = false;
 
@@ -59,6 +62,9 @@ export class LoginComponent {
 
         //Handle the error
         error: (err) => {
+
+          // console.log(err);
+
           // console.log(err.error.message);
 
           //Show the error message to the user

@@ -1,8 +1,8 @@
-<nav class="bg-white border-gray-200" >
+<nav class="bg-white border-gray-200">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
   >
-    <a class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a class="flex items-center md:space-x-3 md:rtl:space-x-reverse">
       <img
         routerLink="home"
         src="assets/images/freshcart-logo.svg"
@@ -43,15 +43,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="home"
             routerLinkActive="bg-emerald-800 text-white"
-            >Home</a
-          >
-        </li>
-        <li>
-          <a
-            class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
-            routerLink="products"
-            routerLinkActive="bg-emerald-800 text-white"
-            >Products</a
+            >{{ "navbar.Home" | translate }}</a
           >
         </li>
         <li>
@@ -59,7 +51,7 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="categories"
             routerLinkActive="bg-emerald-800 text-white"
-            >Categories</a
+            >{{ "navbar.Categories" | translate }}</a
           >
         </li>
         <li>
@@ -67,30 +59,260 @@
             class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
             routerLink="brands"
             routerLinkActive="bg-emerald-800 text-white"
-            >Brands</a
+            >{{ "navbar.Brands" | translate }}</a
           >
         </li>
+        @if(isLoggedIn){
+        <li>
+          <a
+            class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
+            routerLink="allorders"
+            routerLinkActive="bg-emerald-800 text-white"
+            >{{ "navbar.All Orders" | translate }}</a
+          >
+        </li>
+
+        }
       </ul>
     </div>
 
-    <div  class="flex gap-x-3 items-center" >
-      <i  class="fa-brands fa-facebook-f text-lg cursor-pointer"></i>
-      <i  class="fa-brands fa-x-twitter text-lg cursor-pointer"></i>
-      <i  class="fa-brands fa-instagram text-lg cursor-pointer"></i>
+    <div class="flex gap-x-3 items-center">
+      <i class="fa-brands fa-facebook-f text-lg cursor-pointer"></i>
+      <i class="fa-brands fa-x-twitter text-lg cursor-pointer"></i>
+      <i class="fa-brands fa-instagram text-lg cursor-pointer"></i>
+
+      <div>
+        <button
+          id="dropdownDefaultButton"
+          data-dropdown-toggle="dropdown"
+          class="text-white bg-emerald-700 hover:bg-emerald-800 focus:ring-4 focus:outline-none focus:ring-emerald-300 font-medium rounded-lg text-sm px-2 py-3 text-center inline-flex items-center transition-all duration-300 ease-in-out"
+          type="button"
+        >
+          <img [src]="this.icon" class="w-4" alt="" />
+          <svg
+            class="w-2.5 h-2.5 ms-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="m1 1 4 4 4-4"
+            />
+          </svg>
+        </button>
+
+        <!-- Dropdown menu -->
+        <div
+          id="dropdown"
+          class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+        >
+          <ul
+            class="py-2 text-sm text-gray-700"
+            aria-labelledby="dropdownDefaultButton"
+          >
+            <li>
+              <a
+                (click)="changeLanguage('ar')"
+                href="#"
+                class="block px-4 py-2 hover:bg-emerald-100"
+              >
+                <div
+                  class="flex flex-nowrap justify-start items-center transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                  >
+                    <path fill="#fff" d="M1 11H31V21H1z"></path>
+                    <path
+                      d="M5,4H27c2.208,0,4,1.792,4,4v4H1V8c0-2.208,1.792-4,4-4Z"
+                      fill="#be2a2c"
+                    ></path>
+                    <path
+                      d="M5,20H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
+                      transform="rotate(180 16 24)"
+                    ></path>
+                    <path
+                      d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                      opacity=".15"
+                    ></path>
+                    <path
+                      d="M18.5,18.367h0c-.036-.882-.138-3.253-.176-4.166-.13-1.044-1.131,.042-1.702-.052-.309-.439,.042-1.889-.819-1.503-.199-.039-.39-.096-.44,.074,0,0,0,0,0,0-.023,.079-.019,.178,.015,.15,0,0,0,0,0,0,.146-.12,.308,.051,.332,.197,0,0,0,0,0,0,0,.001,0,.002,0,.003,0-.001,0-.002,0-.003,.062,.286-.15,.856-.342,1.082-.567,.087-1.564-.988-1.692,.052,0,0,0,0,0,0l-.176,4.166h0s0,0,0,0l1.35-1.207-.289,1.025c-.1-.017-.192-.092-.28-.022-.158-.008-.23,.179-.176,.287,.007-.015,.021-.026,.037-.036-.023,.03-.038,.071-.038,.124-.136-.029-.167,.174-.268,.174,.087,.024,.021,.203,.18,.256,.265,.598,3.697,.602,3.965,0,.159-.053,.094-.232,.18-.256-.101,0-.133-.203-.268-.174,0-.053-.014-.093-.037-.124,.017,.009,.03,.02,.037,.036,.054-.108-.018-.295-.176-.287-.088-.07-.181,.005-.281,.022l-.289-1.025s1.349,1.205,1.351,1.207h0Z"
+                      fill="#c09300"
+                      fill-rule="evenodd"
+                    ></path>
+                    <path
+                      d="M18.184,18.709c-.008,0-.015,.001-.021,.003,.007,0,.014,0,.021-.003Z"
+                      fill="#c09300"
+                      fill-rule="evenodd"
+                    ></path>
+                    <path
+                      d="M13.837,18.712c-.006-.002-.013-.003-.021-.003,.007,.002,.015,.003,.021,.003Z"
+                      fill="#c09300"
+                      fill-rule="evenodd"
+                    ></path>
+                    <path
+                      d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                      fill="#fff"
+                      opacity=".2"
+                    ></path>
+                  </svg>
+                  <div class="px-2">العربية</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="changeLanguage('en')"
+                href="#"
+                class="block px-4 py-2 hover:bg-emerald-100"
+              >
+                <div
+                  class="flex flex-nowrap justify-start items-center transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                  >
+                    <rect
+                      x="1"
+                      y="4"
+                      width="30"
+                      height="24"
+                      rx="4"
+                      ry="4"
+                      fill="#071b65"
+                    ></rect>
+                    <path
+                      d="M5.101,4h-.101c-1.981,0-3.615,1.444-3.933,3.334L26.899,28h.101c1.981,0,3.615-1.444,3.933-3.334L5.101,4Z"
+                      fill="#fff"
+                    ></path>
+                    <path
+                      d="M22.25,19h-2.5l9.934,7.947c.387-.353,.704-.777,.929-1.257l-8.363-6.691Z"
+                      fill="#b92932"
+                    ></path>
+                    <path
+                      d="M1.387,6.309l8.363,6.691h2.5L2.316,5.053c-.387,.353-.704,.777-.929,1.257Z"
+                      fill="#b92932"
+                    ></path>
+                    <path
+                      d="M5,28h.101L30.933,7.334c-.318-1.891-1.952-3.334-3.933-3.334h-.101L1.067,24.666c.318,1.891,1.952,3.334,3.933,3.334Z"
+                      fill="#fff"
+                    ></path>
+                    <rect x="13" y="4" width="6" height="24" fill="#fff"></rect>
+                    <rect x="1" y="13" width="30" height="6" fill="#fff"></rect>
+                    <rect
+                      x="14"
+                      y="4"
+                      width="4"
+                      height="24"
+                      fill="#b92932"
+                    ></rect>
+                    <rect
+                      x="14"
+                      y="1"
+                      width="4"
+                      height="30"
+                      transform="translate(32) rotate(90)"
+                      fill="#b92932"
+                    ></rect>
+                    <path
+                      d="M28.222,4.21l-9.222,7.376v1.414h.75l9.943-7.94c-.419-.384-.918-.671-1.471-.85Z"
+                      fill="#b92932"
+                    ></path>
+                    <path
+                      d="M2.328,26.957c.414,.374,.904,.656,1.447,.832l9.225-7.38v-1.408h-.75L2.328,26.957Z"
+                      fill="#b92932"
+                    ></path>
+                    <path
+                      d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                      opacity=".15"
+                    ></path>
+                    <path
+                      d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                      fill="#fff"
+                      opacity=".2"
+                    ></path>
+                  </svg>
+                  <div class="px-2">English</div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                (click)="changeLanguage('bg')"
+                href="#"
+                class="block px-4 py-2 hover:bg-emerald-100"
+                ئ
+                ><div
+                  class="flex flex-nowrap justify-start items-center transition-all duration-300 ease-in-out"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                  >
+                    <path fill="#439571" d="M1 11H31V21H1z"></path>
+                    <path
+                      d="M5,4H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
+                      fill="#fff"
+                    ></path>
+                    <path
+                      d="M5,20H27c2.208,0,4,1.792,4,4v4H1v-4c0-2.208,1.792-4,4-4Z"
+                      transform="rotate(180 16 24)"
+                      fill="#c63621"
+                    ></path>
+                    <path
+                      d="M27,4H5c-2.209,0-4,1.791-4,4V24c0,2.209,1.791,4,4,4H27c2.209,0,4-1.791,4-4V8c0-2.209-1.791-4-4-4Zm3,20c0,1.654-1.346,3-3,3H5c-1.654,0-3-1.346-3-3V8c0-1.654,1.346-3,3-3H27c1.654,0,3,1.346,3,3V24Z"
+                      opacity=".15"
+                    ></path>
+                    <path
+                      d="M27,5H5c-1.657,0-3,1.343-3,3v1c0-1.657,1.343-3,3-3H27c1.657,0,3,1.343,3,3v-1c0-1.657-1.343-3-3-3Z"
+                      fill="#fff"
+                      opacity=".2"
+                    ></path>
+                  </svg>
+                  <div class="px-2">български</div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
 
       @if(isLoggedIn){
 
       <a
-        class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
+        class="relative block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
         routerLink="cart"
         routerLinkActive="bg-emerald-800 text-white"
-        ><i class="fa-solid fa-cart-shopping"></i
+        ><i class="fa-solid fa-cart-shopping"></i>
+        <div
+          class="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-gray-500 border-2 border-white rounded-full -top-2 -end-2"
+        >
+          {{ total }}
+        </div></a
+      >
+      <a
+        routerLink="wishlist"
+        routerLinkActive="bg-emerald-800 text-white"
+        class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
+        ><i class="fa-solid fa-heart" style="color: #e00606"></i
       ></a>
-
       <a
         (click)="_AuthService.logOut()"
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
-        >Logout</a
+        >{{ "navbar.Logout" | translate }}</a
       >
 
       } @else {
@@ -98,14 +320,14 @@
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
         routerLink="register"
         routerLinkActive="bg-emerald-800 text-white"
-        >Register</a
+        >{{ "navbar.Register" | translate }}</a
       >
 
       <a
         class="block py-2 px-3 text-gray-900 rounded hover:bg-emerald-800 hover:text-white md:border-0 cursor-pointer transition-all duration-500 ease-in-out"
         routerLink="login"
         routerLinkActive="bg-emerald-800 text-white"
-        >Login</a
+        >{{ "navbar.Login" | translate }}</a
       >
       }
     </div>

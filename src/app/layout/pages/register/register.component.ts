@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -24,6 +25,9 @@ export class RegisterComponent {
 
   //Create a variable to show the loading spinner
   Loading: boolean = false;
+
+  //Create a variable to store the subscription
+  Subscription: Subscription = new Subscription();
 
   //Create a reactive form for the register
   registerForm: FormGroup = new FormGroup(
@@ -64,31 +68,33 @@ export class RegisterComponent {
     this.Loading = true;
 
     if (this.registerForm.valid) {
-      this._AuthService.signUp(this.registerForm.value).subscribe({
-        //Handle the response
-        next: (res) => {
-          this.Loading = false;
-          // console.log(res);
+      this.Subscription = this._AuthService
+        .signUp(this.registerForm.value)
+        .subscribe({
+          //Handle the response
+          next: (res) => {
+            this.Loading = false;
+            // console.log(res);
 
-          //Save the token in the local storage
-          localStorage.setItem('userToken', res.token);
+            //Save the token in the local storage
+            localStorage.setItem('userToken', res.token);
 
-          //Decode the user data from the token
-          this._AuthService.decodeUserData();
+            //Decode the user data from the token
+            this._AuthService.decodeUserData();
 
-          //Navigate to the home page
-          this._Router.navigate(['/home']);
-        },
+            //Navigate to the home page
+            this._Router.navigate(['/home']);
+          },
 
-        //Handle the error
-        error: (err) => {
-          // console.log(err.error.message);
+          //Handle the error
+          error: (err) => {
+            // console.log(err.error.message);
 
-          //Show the error message to the user
-          this.Loading = false;
-          this.errorMSG = err.error.message;
-        },
-      });
+            //Show the error message to the user
+            this.Loading = false;
+            this.errorMSG = err.error.message;
+          },
+        });
     }
   }
 }
