@@ -1,5 +1,5 @@
 import { WishlistService } from './../../../shared/services/wishlist/wishlist.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ProductService } from '../../../shared/services/product/product.service';
 import { allProducts } from '../../../shared/interfaces/product';
 import { CartService } from '../../../shared/services/cart/cart.service';
@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { TranslateModule } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
@@ -55,7 +56,8 @@ export class ProductDetailsComponent implements OnInit {
     private _CartService: CartService,
     private toastr: ToastrService,
     private _WishlistService: WishlistService,
-    private _ActivatedRoute: ActivatedRoute
+    private _ActivatedRoute: ActivatedRoute,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
   wishlistArray: string[] = [];
   ngOnInit(): void {
@@ -72,7 +74,11 @@ export class ProductDetailsComponent implements OnInit {
       });
     }
 
-    this.wishlistCheck();
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage.getItem('userToken') !== '') {
+        this.wishlistCheck();
+      }
+    }
   }
 
   //ping the API to get the product by its ID
