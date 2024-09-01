@@ -16,7 +16,7 @@ export class AllOrdersComponent implements OnInit {
   orderHistory!: OrderHistory[];
   selectedOrderIndex: number | null = null;
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getOrderHistory();
   }
 

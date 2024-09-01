@@ -27,22 +27,23 @@ export class NavbarComponent implements OnInit, DoCheck {
   ) {
     this.platformId = platformId;
     if (isPlatformBrowser(this.platformId)) {
+      if (!localStorage.getItem('language')) {
+        localStorage.setItem('language', 'en');
+      }
 
       if (localStorage.getItem('language') == 'en') {
-        this.icon = "assets/images/flag-icon-GB.png";
-      }else if(localStorage.getItem('language') == 'ar'){
-        this.icon = "assets/images/flag-icon-EG.png";
-    }else if(localStorage.getItem('language') == "bg"){
-      this.icon = "assets/images/flag-icon-BG.png";
+        this.icon = 'assets/images/flag-icon-GB.png';
+      } else if (localStorage.getItem('language') == 'ar') {
+        this.icon = 'assets/images/flag-icon-EG.png';
+      } else if (localStorage.getItem('language') == 'bg') {
+        this.icon = 'assets/images/flag-icon-BG.png';
+      }
     }
-
   }
-}
 
   ngDoCheck(): void {
     if (isPlatformBrowser(this.platformId)) {
       this.total = JSON.parse(localStorage.getItem('sum') || '0');
-
     }
   }
 

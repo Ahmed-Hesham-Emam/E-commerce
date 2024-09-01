@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../shared/services/product/product.service';
 import { allProducts } from '../../../shared/interfaces/product';
 import { CartService } from '../../../shared/services/cart/cart.service';
-import { ToastrService, provideToastr } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
 import { TranslateModule } from '@ngx-translate/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -53,18 +54,22 @@ export class ProductDetailsComponent implements OnInit {
     private _ProductService: ProductService,
     private _CartService: CartService,
     private toastr: ToastrService,
-    private _WishlistService: WishlistService
+    private _WishlistService: WishlistService,
+    private _ActivatedRoute: ActivatedRoute
   ) {}
   wishlistArray: string[] = [];
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       //Eh... if it works it works ¯¯\_(ツ)_/¯¯
-      const id = sessionStorage.getItem('currentPage');
-      // console.log(id.split('/').slice(2,3).join(''));
+      // const id = sessionStorage.getItem('currentPage');
+      // // console.log(id.split('/').slice(2,3).join(''));
 
-      const refinedID = id ? id.split('/').slice(2, 3).join('') : '';
+      // const refinedID = id ? id.split('/').slice(2, 3).join('') : '';
 
-      this.getProductsById(refinedID);
+      this._ActivatedRoute.paramMap.subscribe((params) => {
+        const refinedID = params.get('id');
+        this.getProductsById(refinedID!);
+      });
     }
 
     this.wishlistCheck();

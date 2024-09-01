@@ -4,8 +4,6 @@ import { cartData } from '../../../shared/interfaces/cart';
 import { Subscription } from 'rxjs';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { WishlistService } from '../../../shared/services/wishlist/wishlist.service';
-import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -23,11 +21,7 @@ export class CartComponent implements OnInit {
   removeSubscribtion: Subscription = new Subscription();
   updateSubscribtion: Subscription = new Subscription();
   emptySubscribtion: Subscription = new Subscription();
-  constructor(
-    private _CartService: CartService,
-    private _WishlistService: WishlistService,
-    private toastr: ToastrService
-  ) {}
+  constructor(private _CartService: CartService) {}
 
   ngOnInit(): void {
     this.getCart();
@@ -92,6 +86,4 @@ export class CartComponent implements OnInit {
       },
     });
   }
-
-
 }

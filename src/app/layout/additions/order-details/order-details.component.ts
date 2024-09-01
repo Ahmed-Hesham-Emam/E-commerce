@@ -1,4 +1,3 @@
-import { cart, Product } from './../../../shared/interfaces/cart';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
@@ -28,26 +27,29 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   orderDetails() {
-    // Try to get the saved order from local storage
-    const savedOrder = localStorage.getItem('selectedOrder');
-    if (savedOrder) {
-      this.selectedOrder = JSON.parse(savedOrder);
-      this.cartItems = this.selectedOrder?.cartItems || [];
-      // console.log('Received order from local storage:', this.selectedOrder);
-    } else {
-      // If no saved order, subscribe to the observable
-      this._AllordersService.selectedOrder$.subscribe((res) => {
-        this.selectedOrder = res!;
-        this.cartItems = res?.cartItems || [];
-        console.log('Received order from observable:', this.selectedOrder);
-        // Optionally, save the received order to local storage
-        if (this.selectedOrder) {
-          localStorage.setItem(
-            'selectedOrder',
-            JSON.stringify(this.selectedOrder)
-          );
-        }
-      });
+    if (typeof localStorage !== 'undefined') {
+      // Try to get the saved order from local storage
+      const savedOrder = localStorage.getItem('selectedOrder');
+
+      if (savedOrder) {
+        this.selectedOrder = JSON.parse(savedOrder);
+        this.cartItems = this.selectedOrder?.cartItems! || [];
+        // console.log('Received order from local storage:', this.selectedOrder);
+      } else {
+        // If no saved order, subscribe to the observable
+        this._AllordersService.selectedOrder$.subscribe((res) => {
+          this.selectedOrder = res!;
+          this.cartItems = res?.cartItems || [];
+          // console.log('Received order from observable:', this.selectedOrder);
+          // Optionally, save the received order to local storage
+          if (this.selectedOrder) {
+            localStorage.setItem(
+              'selectedOrder',
+              JSON.stringify(this.selectedOrder)
+            );
+          }
+        });
+      }
     }
   }
 }

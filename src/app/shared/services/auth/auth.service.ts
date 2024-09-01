@@ -33,11 +33,11 @@ export class AuthService {
     @Inject(PLATFORM_ID) platformId: Object
   ) {
     if (isPlatformBrowser(platformId)) {
-      this._Router.events.subscribe((event) => {
-        if (event instanceof NavigationEnd) {
-          sessionStorage.setItem('currentPage', event.urlAfterRedirects);
-        }
-      });
+      // this._Router.events.subscribe((event) => {
+      //   if (event instanceof NavigationEnd) {
+      //     sessionStorage.setItem('currentPage', event.urlAfterRedirects);
+      //   }
+      // });
 
       // //Handle the case when the user refresh the page
       // const lastVisitedPage = sessionStorage.getItem('currentPage');
