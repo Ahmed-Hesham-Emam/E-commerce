@@ -81,9 +81,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  addToCart(product_id: string) {
+  addToCart(id: string) {
     this.addCartSubscription = this._CartService
-      .addToCart(product_id)
+      .addToCart(id)
       .subscribe({
         next: (res) => {
           this.sumResult = 0;
