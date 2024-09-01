@@ -1,6 +1,6 @@
 <div class="m-auto container">
-  <div class="flex flex-nowrap">
-    <div class="md:w-9/12">
+  <div class="flex flex-nowrap md:flex-row flex-col">
+    <div class="md:w-9/12 order-2 md:order-1">
       <owl-carousel-o [options]="customOptions">
         <ng-template carouselSlide
           ><img
@@ -23,14 +23,14 @@
       </owl-carousel-o>
     </div>
 
-    <div class="md:w-3/12">
+    <div class="md:w-3/12 order-1 md:order-2 flex flex-row md:flex-col flex-nowrap">
       <img
-        class="h-48 object-cover"
+        class="w-1/2 md:h-48 object-contain"
         src="assets/images/slider-image-1.jpeg"
         alt=""
       />
       <img
-        class="h-48 object-cover"
+        class="w-1/2 md:h-48 object-contain"
         src="assets/images/slider-image-3.jpeg"
         alt=""
       />
