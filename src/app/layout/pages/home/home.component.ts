@@ -1,9 +1,14 @@
 import { Metadata } from './../../../shared/interfaces/category';
 import { Subscription } from 'rxjs';
 import { allProducts } from './../../../shared/interfaces/product';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ProductService } from '../../../shared/services/product/product.service';
-import { NgClass, NgIf, NgOptimizedImage } from '@angular/common';
+import {
+  isPlatformBrowser,
+  NgClass,
+  NgIf,
+  NgOptimizedImage,
+} from '@angular/common';
 import { CategorySliderComponent } from '../../additions/category-slider/category-slider.component';
 import { FirstSliderComponent } from '../../additions/first-slider/first-slider.component';
 import { RouterLink } from '@angular/router';
@@ -11,7 +16,7 @@ import { CartService } from '../../../shared/services/cart/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
 import { WishlistService } from '../../../shared/services/wishlist/wishlist.service';
-import { SearchPipe } from "../../../shared/pipes/search.pipe";
+import { SearchPipe } from '../../../shared/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -27,7 +32,7 @@ import { FormsModule } from '@angular/forms';
     TranslateModule,
     SearchPipe,
     FormsModule,
-],
+  ],
   //Just becuse Angular does't like my icons wither it's inside <i> or <svg> it just hates font Awesome icons i guess
   host: { ngSkipHydration: 'true' },
   templateUrl: './home.component.html',
@@ -50,14 +55,17 @@ export class HomeComponent implements OnInit {
     private _ProductService: ProductService,
     private _CartService: CartService,
     private toastr: ToastrService,
-    private _WishlistService: WishlistService
+    private _WishlistService: WishlistService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   wishlistArray: string[] = [];
 
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.wishlistCheck();
+    }
     this.getAllProducts(this.currentPage);
-    this.wishlistCheck();
   }
 
   getAllProducts(page: number) {
@@ -82,22 +90,20 @@ export class HomeComponent implements OnInit {
   }
 
   addToCart(id: string) {
-    this.addCartSubscription = this._CartService
-      .addToCart(id)
-      .subscribe({
-        next: (res) => {
-          this.sumResult = 0;
-          for (let i = 0; i < res.data.products.length; i++) {
-            this.sumResult += res.data.products[i].count;
-          }
-          localStorage.setItem('sum', this.sumResult.toString());
-          this.toastr.success(res.message, res.status, {
-            timeOut: 1500,
-            progressBar: true,
-            closeButton: true,
-          });
-        },
-      });
+    this.addCartSubscription = this._CartService.addToCart(id).subscribe({
+      next: (res) => {
+        this.sumResult = 0;
+        for (let i = 0; i < res.data.products.length; i++) {
+          this.sumResult += res.data.products[i].count;
+        }
+        localStorage.setItem('sum', this.sumResult.toString());
+        this.toastr.success(res.message, res.status, {
+          timeOut: 1500,
+          progressBar: true,
+          closeButton: true,
+        });
+      },
+    });
   }
 
   //get wishlist IDs
