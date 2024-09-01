@@ -1,5 +1,5 @@
 import { OrderHistory } from './../../../shared/interfaces/allproducts';
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
