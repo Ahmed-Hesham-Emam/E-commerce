@@ -32,12 +32,16 @@ export class AllOrdersComponent implements OnInit {
       this.orderHistory = res;
       this.orderHistory.reverse();
 
-      // console.log(this.orderHistory);
+      console.log(this.orderHistory);
     });
   }
 
   selectOrder(order: OrderHistory): void {
     localStorage.setItem('selectedOrder', JSON.stringify(order));
-    this._AllordersService.setSelectedOrder(order);
+    
   }
+
+
+
+
 }

@@ -38,7 +38,11 @@
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPrevPage()"
     >
+    @if(this.rtl){
+      <i class="fa-solid fa-arrow-right"></i>
+      } @if(!this.rtl){
       <i class="fa-solid fa-arrow-left"></i>
+      }
     </button>
 
     @for(page of pages ; track $index) {
@@ -56,7 +60,11 @@
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadNextPage()"
     >
+    @if(this.rtl){
+      <i class="fa-solid fa-arrow-left"></i>
+      } @if(!this.rtl){
       <i class="fa-solid fa-arrow-right"></i>
+      }
     </button>
   </div>
 </div>

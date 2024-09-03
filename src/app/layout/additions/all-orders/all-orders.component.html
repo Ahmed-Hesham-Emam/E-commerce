@@ -2,7 +2,7 @@
   <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
     <div class="mx-auto max-w-5xl">
       <div class="gap-4 sm:flex sm:items-center sm:justify-between">
-        <h2 class="text-xl font-semibold text-gray-900 sm:text-2xl">
+        <h2 class="text-xl font-semibold text-emerald-900 sm:text-2xl">
           {{'My orders' | translate}}
         </h2>
       </div>
@@ -17,7 +17,7 @@
               <dt class="text-base font-medium text-gray-500">{{'Order ID' | translate}}:</dt>
 
               <dd class="mt-1.5 text-base font-semibold text-gray-900">
-                <a>{{ order._id }}</a>
+                <a>{{ order.id }}</a>
               </dd>
             </dl>
 
@@ -38,6 +38,14 @@
             </dl>
 
             <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+              <dt class="text-base font-medium text-gray-500">Date :</dt>
+
+              <dd class="mt-1.5 text-base font-semibold text-gray-900">
+                <a>{{ order.createdAt.split('T')[0] }}</a>
+              </dd>
+            </dl>
+
+            <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
               <dt class="text-base font-medium text-gray-500">
                 {{'Shipping Address:' | translate}}
               </dt>
@@ -50,7 +58,7 @@
               <a
             (click)="selectOrder(order)"
               routerLink="/order-details/{{ order._id }}"
-                class="cursor-pointer w-full inline-flex justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 lg:w-auto"
+                class="cursor-pointer w-full inline-flex justify-center rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 lg:w-auto transition-all duration-300 ease-in-out"
                 >{{'View details' | translate}}</a
               >
             </div>

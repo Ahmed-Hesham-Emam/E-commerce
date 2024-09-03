@@ -15,10 +15,18 @@ export class BrandsComponent {
   pages: number[] = [];
   brandsList!: DATA[];
 
+  rtl: boolean = false;
+
   constructor(private _BrandsService: BrandsService) {}
 
   ngOnInit(): void {
     this.getAllBrands(this.currentPage);
+
+    if (document.dir === 'rtl') {
+      this.rtl = true;
+    } else {
+      this.rtl = false;
+    }
   }
 
   getAllBrands(page: number) {

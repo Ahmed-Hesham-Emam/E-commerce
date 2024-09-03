@@ -5,23 +5,92 @@
     Order Details
   </h2>
 
-  @if (selectedOrder) {
-  <h3
-    class="text-xl my-5 font-semibold text-emerald-600 sm:text-2xl text-center"
-  >
-    Order ID: {{ selectedOrder._id }}
-  </h3>
-  } @for (item of cartItems ; track $index) {
+  <div class="mx-auto w-full mb-7">
+    @if (selectedOrder) {
+    <div class="mt-6 flow-root border-2 px-3 py-5 rounded-lg sm:mt-8">
+      <div class="divide-y divide-gray-200">
+        <div class="flex flex-wrap gap-x-4 gap-y-4 py-6">
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">Order ID :</dt>
 
-  <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl mb-7">
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              <a>{{ selectedOrder.id }}</a>
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">Price :</dt>
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              {{ selectedOrder.totalOrderPrice }} EGP
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">
+              Payment Method :
+            </dt>
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              {{ selectedOrder.paymentMethodType }}
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">Date :</dt>
+
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              <a>{{ selectedOrder.createdAt.split("T")[0] }}</a>
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">Delivery :</dt>
+
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              @if (selectedOrder.isDelivered === true) {
+              <a>Delivered</a>
+              } @else {
+              <a>In progress </a>
+              }
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">Delivery :</dt>
+
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              @if (selectedOrder.isPaid === true) {
+              <a>Paid</a>
+              } @else {
+              <a>Not Paid </a>
+              }
+            </dd>
+          </dl>
+
+          <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
+            <dt class="text-base font-medium text-gray-500">
+              Shipping Address :
+            </dt>
+            <dd class="mt-1.5 text-base font-semibold text-gray-900">
+              {{ selectedOrder.shippingAddress.details }}
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+  @for (item of cartItems ; track $index) {
+
+  <div class="mx-auto w-full lg:max-w-2xl xl:max-w-4xl mb-7">
     <div class="space-y-6">
       <div
         class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6"
       >
         <div
-          class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0"
+          class="space-y-4 flex flex-col flex-wrap md:flex-row items-center md:justify-between md:gap-6 md:space-y-0"
         >
-          <div class="shrink-0 md:order-1">
+          <div class="order-1">
             <img
               class="h-20 w-20"
               [src]="item.product.imageCover"
@@ -29,35 +98,39 @@
             />
           </div>
 
-          <label for="counter-input" class="sr-only">Choose quantity:</label>
-          <div
-            class="flex items-center justify-between md:order-3 md:justify-end"
-          >
-            <!-- QUANTATIY CHANGE -->
-            <div class="flex items-center">
+          <div class="order-3 flex">
+            <p class="text-base font-bold text-start text-gray-900">
+              Quantity :
+            </p>
+
+            <div>
               <!-- QUANTATIY -->
               <input
                 type="text"
                 id="counter-input"
                 data-input-counter
-                class="w-10 cursor-default shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0"
+                class="w-10 cursor-default border-0 p-0 bg-transparent text-sm font-medium text-gray-900 focus:outline-none focus:ring-0"
                 placeholder=""
-                value="{{ item.count }}"
+                value="  {{ item.count }}"
                 required
                 readonly
               />
             </div>
-            <div class="text-end md:order-4 md:w-32">
-              <p class="text-base font-bold text-gray-900">
-                {{ item.price }} EGP
-              </p>
-            </div>
           </div>
 
-          <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
-            <a class="text-base font-medium text-gray-900 hover:underline">{{
-              item.product.title
-            }}</a>
+          <div class="order-4 flex">
+            <p class="text-base font-bold text-start text-gray-900 pe-2">Price :</p>
+            <p class="text-base font-bold text-gray-900">
+              {{ item.price }} EGP
+            </p>
+          </div>
+
+          <div class="order-2 flex">
+            <p class="text-base text-start font-bold text-gray-900 pe-2">Title:</p>
+
+            <div>
+              <p class="font-medium text-gray-900">{{ item.product.title }}</p>
+            </div>
           </div>
         </div>
       </div>

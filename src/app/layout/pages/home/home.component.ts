@@ -61,10 +61,18 @@ export class HomeComponent implements OnInit {
 
   wishlistArray: string[] = [];
 
+  rtl: boolean = false;
+
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       if (localStorage.getItem('userToken') !== '') {
         this.wishlistCheck();
+      }
+
+      if (document.dir === 'rtl') {
+        this.rtl = true;
+      } else {
+        this.rtl = false;
       }
     }
     this.getAllProducts(this.currentPage);

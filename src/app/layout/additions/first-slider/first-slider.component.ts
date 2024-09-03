@@ -9,6 +9,8 @@ import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./first-slider.component.scss'],
 })
 export class FirstSliderComponent {
+
+
   customOptions: OwlOptions = {
     loop: true,
     rtl: true,

@@ -14,8 +14,11 @@
 
   <div class="w-3/4 m-auto">
     <input
-    [(ngModel)]="userSearch"
-     class="rounded-lg w-full px-2 py-3 my-5 focus:border-emerald-600 focus:ring-emerald-600" placeholder="Search by title" type="text">
+      [(ngModel)]="userSearch"
+      class="rounded-lg w-full px-2 py-3 my-5 focus:border-emerald-600 focus:ring-emerald-600"
+      placeholder="Search by title"
+      type="text"
+    />
   </div>
 
   <div
@@ -93,7 +96,11 @@
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPrevPage()"
     >
+      @if(this.rtl){
+      <i class="fa-solid fa-arrow-right"></i>
+      } @if(!this.rtl){
       <i class="fa-solid fa-arrow-left"></i>
+      }
     </button>
 
     @for(page of pages ; track $index) {
@@ -111,7 +118,12 @@
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadNextPage()"
     >
+
+            @if(this.rtl){
+      <i class="fa-solid fa-arrow-left"></i>
+      } @if(!this.rtl){
       <i class="fa-solid fa-arrow-right"></i>
+      }
     </button>
   </div>
 </div>
