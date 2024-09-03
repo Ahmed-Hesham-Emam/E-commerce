@@ -46,6 +46,7 @@ export const routes: Routes = [
         (res) => res.AllOrdersComponent
       ),
     title: 'All Orders',
+    canActivate: [authGuardGuard],
   },
 
   {
@@ -55,6 +56,7 @@ export const routes: Routes = [
         (res) => res.OrderDetailsComponent
       ),
     title: 'orderDetails',
+    canActivate: [authGuardGuard],
   },
 
   {
