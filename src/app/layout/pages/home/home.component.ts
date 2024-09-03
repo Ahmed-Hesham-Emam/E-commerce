@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
           for (let i = 1; i <= this.totalPages; i++) {
             this.pages.push(i);
           }
-          // console.log(this.productList);
+          console.log(this.productList);
         },
         error: (err) => {
           // console.log(err);
