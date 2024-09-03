@@ -23,10 +23,12 @@ export class BrandsComponent {
   ngOnInit(): void {
     this.getAllBrands(this.currentPage);
 
-    if (document.dir === 'rtl') {
-      this.rtl = true;
-    } else {
-      this.rtl = false;
+    if (typeof document !== 'undefined') {
+      if (document.dir === 'rtl') {
+        this.rtl = true;
+      } else {
+        this.rtl = false;
+      }
     }
   }
 
