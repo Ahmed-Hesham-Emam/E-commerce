@@ -4,6 +4,8 @@ import { AuthService } from '../../../shared/services/auth/auth.service';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationsService } from '../../../shared/services/tranlations/translations.service';
+import { cart } from '../../../shared/interfaces/cart';
+import { CartService } from '../../../shared/services/cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -19,11 +21,13 @@ export class NavbarComponent implements OnInit, DoCheck {
   total!: string;
   platformId: Object;
   icon!: string;
+  sumResult!: number;
 
   constructor(
     private _TranslationsService: TranslationsService,
     @Inject(PLATFORM_ID) platformId: Object,
-    public _AuthService: AuthService
+    public _AuthService: AuthService,
+    private _CartService:CartService
   ) {
     this.platformId = platformId;
     if (isPlatformBrowser(this.platformId)) {
@@ -38,6 +42,19 @@ export class NavbarComponent implements OnInit, DoCheck {
       } else if (localStorage.getItem('language') == 'bg') {
         this.icon = 'assets/images/flag-icon-BG.png';
       }
+
+      this._CartService.getCart().subscribe({
+        next: (res) => {
+          // console.log(res.data);
+  
+          this.sumResult = 0;
+          for (let i = 0; i < res.data.products.length; i++) {
+            this.sumResult += res.data.products[i].count;
+          }
+          localStorage.setItem('sum', this.sumResult.toString());
+        }
+      });
+
     }
   }
 
