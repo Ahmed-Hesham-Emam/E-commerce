@@ -1,6 +1,6 @@
 <div class="w-3/4 my-9 m-auto">
   <h1 class="text-center text-emerald-700 font-semibold text-3xl">
-    Register now!
+    {{ "Register now" | translate }} !
   </h1>
   <p class="text-center text-red-400 text-sm">
     <span
@@ -32,23 +32,28 @@
       <label
         for="floating_name"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Name</label
+        >{{ "Name" | translate }}</label
       >
 
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (registerForm.get('name')?.touched &&
         registerForm.get('name')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is a required field" | translate }}
+        </p>
         } @else if (registerForm.get('name')?.touched &&
         registerForm.get('name')?.errors?.['minlength']) {
         <p class="text-sm py-2 px-3">
-          The name should be at-least 3 characters long
+          {{ "The name should be at-least 3 characters long" | translate }}
         </p>
         } @else if (registerForm.get('name')?.touched &&
         registerForm.get('name')?.errors?.['maxlength']) {
         <p class="text-sm py-2 px-3">
-          hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!
+          {{
+            "hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!"
+              | translate
+          }}
         </p>
         }
       </div>
@@ -68,15 +73,19 @@
       <label
         for="floating_email"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Email address</label
+        >{{ "Email address" | translate }}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (registerForm.get('email')?.touched &&
         registerForm.get('email')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is a required field" | translate }}
+        </p>
         } @else if (registerForm.get('email')?.errors?.['email']) {
-        <p class="text-sm py-2 px-3">This is not a valid email</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is not a valid email" | translate }}
+        </p>
         <p class="text-sm py-2 px-3">example&#64;example.com</p>
         }
       </div>
@@ -96,22 +105,19 @@
       <label
         for="floating_password"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Password</label
+        >{{ "Password" | translate }}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (registerForm.get('password')?.touched &&
         registerForm.get('password')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is a required field" | translate }}
+        </p>
         } @else if (registerForm.get('password')?.touched &&
         registerForm.get('password')?.errors?.['pattern']) {
         <p class="text-sm py-2 px-3">
-          The password should be at-least <br />
-          -8 characters long <br />
-          - 1 capital letter <br />
-          - 1 small letter <br />
-          - a number <br />
-          and a special character "&#64;#$%^&+="
+          {{ "Password description" | translate }}
         </p>
         }
       </div>
@@ -131,16 +137,20 @@
       <label
         for="floating_cPassword"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Confirm password</label
+        >{{ "Confirm password" | translate }}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (registerForm.get('rePassword')?.touched &&
         registerForm.get('rePassword')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is a required field" | translate }}
+        </p>
         } @else if (registerForm.get('rePassword')?.touched &&
         registerForm.get('rePassword')?.errors?.['notMatched']) {
-        <p class="text-sm py-2 px-3">Passwords do not match</p>
+        <p class="text-sm py-2 px-3">
+          {{ "Passwords do not match" | translate }}
+        </p>
         }
       </div>
     </div>
@@ -159,17 +169,19 @@
       <label
         for="floating_phone"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >phone number</label
+        >{{ "phone number" | translate }}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (registerForm.get('phone')?.touched &&
         registerForm.get('phone')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">
+          {{ "This is a required field" | translate }}
+        </p>
         } @else if (registerForm.get('phone')?.touched &&
         registerForm.get('phone')?.errors?.['pattern']) {
         <p class="text-sm py-2 px-3">
-          The phone number should be a valid 'EGYPTIAN' phone number
+          {{"The phone number should be a valid 'EGYPTIAN' phone number" | translate}}
         </p>
         }
       </div>
@@ -184,7 +196,7 @@
       @if (Loading) {
       <span><i class="fa-solid fa-spinner fa-spin"></i></span>
       } @else {
-      <span>Register</span>
+      <span>{{"Register" | translate}}</span>
       }
     </button>
   </form>

@@ -1,11 +1,12 @@
 import { brands, DATA } from './../../../shared/interfaces/brands';
 import { Component } from '@angular/core';
 import { BrandsService } from '../../../shared/services/brands/brands.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-brands',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './brands.component.html',
   styleUrl: './brands.component.scss',
 })

@@ -9,52 +9,48 @@
     "Logout": "Изход"
   },
 
-  "Login": {
-    "login": "Вход",
-    "Email address": "Имейл адрес",
-    "Password": "Парола",
-    "Forget Password?": "Забравена парола?",
-    "This is a required field": "Това поле е задължително",
-    "This is not a valid email": "Това не е валиден имейл",
-    "Email example": "example@example.com",
-    "Password description": "Паролата трябва да съдържа поне:\n- 8 символа\n- 1 главна буква\n- 1 малка буква\n- число\nи специален символ '@#$%^&+='"
-  },
+  "login": "Вход",
+  "Email address": "Имейл адрес",
+  "Password": "Парола",
+  "Confirm password": "Потвърди парола",
+  "Forget Password?": "Забравена парола?",
+  "Passwords do not match": "Паролите не съвпадат",
+  "Reset password": "Възстановяване на парола",
+  "The phone number should be a valid 'EGYPTIAN' phone number": "Телефонният номер трябва да бъде валиден 'ЕГИПЕТСКИ' телефонен номер",
+  "the reset code should be at-least 4 numbers": "Кодът за възстановяване трябва да бъде поне 4 цифри",
+  "This is a required field": "Това поле е задължително",
+  "This is not a valid email": "Това не е валиден имейл",
+  "Email example": "example@example.com",
+  "Password description": "Паролата трябва да бъде:\n- най-малко 8 символа\n- 1 главна буква\n- 1 малка буква\n- цифра\nи специален символ '@#$%^&+='",
 
-  "Forget Password": {
-    "Reset Password!": "Нулиране на паролата!",
-    "Email address": "Имейл адрес",
-    "Password": "Парола",
-    "Confirm password": "Потвърди паролата",
-    "get code": "получаване на код",
-    "Reset Code": "Нулиране на кода"
-  },
+  "Reset Password!": "Възстановяване на парола!",
+  "The name should be at-least 3 characters long": "Името трябва да бъде поне 3 символа дълго",
 
-  "Register": {
-    "Register now": "Регистрирай се сега",
-    "Name": "Име",
-    "Email address": "Имейл адрес",
-    "Password": "Парола",
-    "Confirm password": "Потвърди паролата",
-    "phone number": "телефонен номер",
-    "Register": "Регистрация",
-    "This is a required field": "Това поле е задължително",
-    "This is not a valid email": "Това не е валиден имейл",
-    "Email example": "example@example.com",
-    "description": "Паролата трябва да съдържа поне:\n- 8 символа\n- 1 главна буква\n- 1 малка буква\n- число\nи специален символ '@#$%^&+='"
-  },
+  "hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!": "хммм... максималната дължина е 20, И МИСЛИХ, ЧЕ 20 Е ПРЕКАЛЕНО!!!",
+
+  "get code": "получете код",
+  "Reset Code": "Код за възстановяване",
+
+  "Register now": "Регистрирайте се сега",
+  "Name": "Име",
+
+  "phone number": "телефонен номер",
+  "Register": "Регистрация",
+
+  "description": "Паролата трябва да бъде:\n- най-малко 8 символа\n- 1 главна буква\n- 1 малка буква\n- цифра\nи специален символ '@#$%^&+='",
 
   "Popular category": "Популярни категории",
 
   "My orders": "Моите поръчки",
 
-  "Order ID": "Номер на поръчка",
+  "Order ID": "Поръчка №",
 
   "Price": "Цена",
   "Pament Method": "Метод на плащане",
   "Shipping Address:": "Адрес за доставка:",
-  "View details": "Преглед на детайли",
+  "View details": "Виж подробности",
 
-  "Shopping Cart": "Пазарска количка",
+  "Shopping Cart": "Количка",
   "Order summary": "Обобщение на поръчката",
   "Total items": "Общо артикули",
   "Total price": "Обща цена",
@@ -65,11 +61,31 @@
   "city": "град",
   "Pay with Credit Card": "Плащане с кредитна карта",
   "Cash on delivery": "Наложен платеж",
-  "Proceed to Checkout": "Продължете към плащане",
+  "Proceed to Checkout": "Преминете към плащане",
   "Continue Shopping": "Продължете с пазаруването",
   "or": "или",
   "add to cart": "добави в количката",
   "remove": "премахни",
   "Payment Method": "Метод на плащане",
-  "Empty Cart": "Изпразни количката"
+  "Empty Cart": "Празна количка",
+  "Date": "Дата",
+  "Order Details": "Детайли на поръчката",
+  "Delivery": "Доставка",
+  "Payment": "Плащане",
+  "Quantity": "Количество",
+  "Title": "Заглавие",
+  "Our Brands": "Нашите марки",
+  "Our Categories": "Нашите категории",
+  "Your cart is empty": "Вашата количка е празна",
+  "No items in your wishlist": "Няма артикули във вашия списък с желания",
+  "Rating": "Оценка",
+  "Remove": "Премахни",
+  "Get the fresh cart app": "Изтеглете приложението Fresh Cart",
+  "We will send you the link to download the app": "Ще ви изпратим линк за изтегляне на приложението",
+  "Share App Link": "Сподели линк за приложението",
+  "Payment partners": "Партньори за плащане",
+  "Get deliveries with Fresh Cart": "Получете доставки с Fresh Cart",
+  "This is not a valid egyptian address followed by your zip code": "Това не е валиден египетски адрес, следван от вашия пощенски код",
+  "example: 1234 street name, Cairo, Egypt, 12345": "пример: 1234 име на улица, Кайро, Египет, 12345",
+  "This is not a valid egyptian phone number": "Това не е валиден египетски телефонен номер"
 }

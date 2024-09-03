@@ -14,7 +14,7 @@
         <div class="divide-y divide-gray-200">
           <div class="flex flex-wrap items-center gap-x-4 gap-y-4 py-6">
             <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-              <dt class="text-base font-medium text-gray-500">{{'Order ID' | translate}}:</dt>
+              <dt class="text-base font-medium text-gray-500">{{'Order ID' | translate}} :</dt>
 
               <dd class="mt-1.5 text-base font-semibold text-gray-900">
                 <a>{{ order.id }}</a>
@@ -22,7 +22,7 @@
             </dl>
 
             <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-              <dt class="text-base font-medium text-gray-500">{{'Price' | translate}}:</dt>
+              <dt class="text-base font-medium text-gray-500">{{'Price' | translate}} :</dt>
               <dd class="mt-1.5 text-base font-semibold text-gray-900">
                 {{ order.totalOrderPrice }} EGP
               </dd>
@@ -30,7 +30,7 @@
 
             <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
               <dt class="text-base font-medium text-gray-500">
-                {{'Payment Method' | translate}}:
+                {{'Payment Method' | translate}} :
               </dt>
               <dd class="mt-1.5 text-base font-semibold text-gray-900">
                 {{ order.paymentMethodType }}
@@ -38,7 +38,7 @@
             </dl>
 
             <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-              <dt class="text-base font-medium text-gray-500">Date :</dt>
+              <dt class="text-base font-medium text-gray-500">{{'Date' | translate}} :</dt>
 
               <dd class="mt-1.5 text-base font-semibold text-gray-900">
                 <a>{{ order.createdAt.split('T')[0] }}</a>

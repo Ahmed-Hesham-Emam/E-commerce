@@ -9,39 +9,35 @@
     "Logout": "Logout"
   },
 
-  "Login": {
-    "login": "Login",
-    "Email address": "Email address",
-    "Password": "Password",
-    "Forget Password?": "Forget Password?",
-    "This is a required field": "This is a required field",
-    "This is not a valid email": "This is not a valid email",
-    "Email example": "example@example.com",
-    "Password description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='"
-  },
+  "login": "Login",
+  "Email address": "Email address",
+  "Password": "Password",
+  "Confirm password": "Confirm password",
+  "Forget Password?": "Forget Password?",
+  "Passwords do not match": "Passwords do not match",
+  "Reset password": "Reset password",
+  "The phone number should be a valid 'EGYPTIAN' phone number": "The phone number should be a valid 'EGYPTIAN' phone number",
+  "the reset code should be at-least 4 numbers": "the reset code should be at-least 4 numbers",
+  "This is a required field": "This is a required field",
+  "This is not a valid email": "This is not a valid email",
+  "Email example": "example@example.com",
+  "Password description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='",
 
-  "Forget Password": {
-    "Reset Password!": "Reset Password!",
-    "Email address": "Email address",
-    "Password": "Password",
-    "Confirm password": "Confirm password",
-    "get code": "get code",
-    "Reset Code": "Reset Code"
-  },
+  "Reset Password!": "Reset Password!",
+  "The name should be at-least 3 characters long": "The name should be at-least 3 characters long",
 
-  "Register": {
-    "Register now": "Register now",
-    "Name": "Name",
-    "Email address": "Email address",
-    "Password": "Password",
-    "Confirm password": "Confirm password",
-    "phone number": "phone number",
-    "Register": "Register",
-    "This is a required field": "This is a required field",
-    "This is not a valid email": "This is not a valid email",
-    "Email example": "example@example.com",
-    "description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='"
-  },
+  "hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!": "hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!",
+
+  "get code": "get code",
+  "Reset Code": "Reset Code",
+
+  "Register now": "Register now",
+  "Name": "Name",
+
+  "phone number": "phone number",
+  "Register": "Register",
+
+  "description": "The password should be at-least\n-8 characters long\n- 1 capital letter\n- 1 small letter\n- a number\nand a special character '@#$%^&+='",
 
   "Popular category": "Popular categories",
 
@@ -71,6 +67,25 @@
   "add to cart": "add to cart",
   "remove": "remove",
   "Payment Method": "Payment Method",
-  "Empty Cart": "Empty Cart"
-  
+  "Empty Cart": "Empty Cart",
+  "Date": "Date",
+  "Order Details": "Order Details",
+  "Delivery": "Delivery",
+  "Payment": "Payment",
+  "Quantity": "Quantity",
+  "Title": "Title",
+  "Our Brands": "Our Brands",
+  "Our Categories": "Our Categories",
+  "Your cart is empty": "Your cart is empty",
+  "No items in your wishlist": "No items in your wishlist",
+  "Rating": "Rating",
+  "Remove": "Remove",
+  "Get the fresh cart app": "Get the fresh cart app",
+  "We will send you the link to download the app": "We will send you the link to download the app",
+  "Share App Link": "Share App Link",
+  "Payment partners": "Payment partners",
+  "Get deliveries with Fresh Cart": "Get deliveries with Fresh Cart",
+  "This is not a valid egyptian address followed by your zip code": "This is not a valid egyptian address followed by your zip code",
+  "example: 1234 street name, Cairo, Egypt, 12345": "example: 1234 street name, Cairo, Egypt, 12345",
+  "This is not a valid egyptian phone number": "This is not a valid egyptian phone number"
 }

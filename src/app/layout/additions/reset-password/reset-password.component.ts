@@ -9,11 +9,12 @@ import {
 import { AuthService } from '../../../shared/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-reset-password',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule , TranslateModule],
   templateUrl: './reset-password.component.html',
   styleUrl: './reset-password.component.scss',
 })

@@ -8,11 +8,12 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { ResetPasswordComponent } from '../../additions/reset-password/reset-password.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule, ResetPasswordComponent, RouterLink],
+  imports: [ReactiveFormsModule, ResetPasswordComponent, RouterLink, TranslateModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })

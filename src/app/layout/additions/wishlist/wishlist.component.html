@@ -24,7 +24,7 @@
       <div class="flex justify-between items-center">
         <p>{{ "Price" | translate }}: {{item.price}} EGP</p>
         <p>
-          Rating: {{item.ratingsAverage}}
+          {{'Rating' |translate}} : {{item.ratingsAverage}}
           <i class="fa fa-star text-emerald-700"></i>
         </p>
       </div>
@@ -51,7 +51,7 @@
 }@else {
   <div class="flex flex-col items-center justify-center h-96">
     <h1 class="md:text-3xl text-lg font-semibold text-emerald-900">
-      No items in your wishlist
+      {{'No items in your wishlist' | translate}}
     </h1>
   </div>
 }

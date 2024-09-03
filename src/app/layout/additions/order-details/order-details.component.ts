@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
 import { CartItem, OrderHistory } from '../../../shared/interfaces/allproducts';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf , TranslateModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss',
 })

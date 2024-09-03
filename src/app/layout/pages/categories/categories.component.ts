@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoryService } from '../../../shared/services/category/category.service';
 import { category } from '../../../shared/interfaces/category';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.scss'
 })

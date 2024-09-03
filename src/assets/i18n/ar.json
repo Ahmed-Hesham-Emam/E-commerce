@@ -1,47 +1,43 @@
 {
   "navbar": {
-    "Home": "الصفحة الرئيسية",
+    "Home": "الرئيسية",
     "Categories": "الفئات",
     "Brands": "العلامات التجارية",
-    "All Orders": "كل الطلبات",
-    "Register": "تسجيل",
+    "All Orders": "جميع الطلبات",
+    "Register": "التسجيل",
     "Login": "تسجيل الدخول",
     "Logout": "تسجيل الخروج"
   },
 
-  "Login": {
-    "login": "تسجيل الدخول",
-    "Email address": "البريد الإلكتروني",
-    "Password": "كلمة المرور",
-    "Forget Password?": "نسيت كلمة المرور؟",
-    "This is a required field": "هذه الخانة مطلوبة",
-    "This is not a valid email": "هذا ليس بريد إلكتروني صالح",
-    "Email example": "example@example.com",
-    "Password description": "يجب أن تكون كلمة المرور على الأقل:\n- 8 أحرف طويلة\n- حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='"
-  },
+  "login": "تسجيل الدخول",
+  "Email address": "عنوان البريد الإلكتروني",
+  "Password": "كلمة المرور",
+  "Confirm password": "تأكيد كلمة المرور",
+  "Forget Password?": "نسيت كلمة المرور؟",
+  "Passwords do not match": "كلمات المرور غير متطابقة",
+  "Reset password": "إعادة تعيين كلمة المرور",
+  "The phone number should be a valid 'EGYPTIAN' phone number": "يجب أن يكون رقم الهاتف رقمًا مصريًا صالحًا",
+  "the reset code should be at-least 4 numbers": "يجب أن يتكون رمز إعادة التعيين من 4 أرقام على الأقل",
+  "This is a required field": "هذه الخانة مطلوبة",
+  "This is not a valid email": "هذا البريد الإلكتروني غير صالح",
+  "Email example": "example@example.com",
+  "Password description": "يجب أن تكون كلمة المرور:\n- مكونة من 8 أحرف على الأقل\n- تحتوي على حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='",
 
-  "Forget Password": {
-    "Reset Password!": "إعادة تعيين كلمة المرور!",
-    "Email address": "البريد الإلكتروني",
-    "Password": "كلمة المرور",
-    "Confirm password": "تأكيد كلمة المرور",
-    "get code": "الحصول على الكود",
-    "Reset Code": "إعادة تعيين الكود"
-  },
+  "Reset Password!": "إعادة تعيين كلمة المرور!",
+  "The name should be at-least 3 characters long": "يجب أن يكون الاسم مكونًا من 3 أحرف على الأقل",
 
-  "Register": {
-    "Register now": "سجل الآن",
-    "Name": "الاسم",
-    "Email address": "البريد الإلكتروني",
-    "Password": "كلمة المرور",
-    "Confirm password": "تأكيد كلمة المرور",
-    "phone number": "رقم الهاتف",
-    "Register": "تسجيل",
-    "This is a required field": "هذه الخانة مطلوبة",
-    "This is not a valid email": "هذا ليس بريد إلكتروني صالح",
-    "Email example": "example@example.com",
-    "description": "يجب أن تكون كلمة المرور على الأقل:\n- 8 أحرف طويلة\n- حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='"
-  },
+  "hmmm... the maximum length is 20, AND I THOUGHT 20 IS TOO MUCH!!!": "هممم... الحد الأقصى للطول هو 20، وَظَنَنْتُ أَنَّ 20 كثير جدًا!!!",
+
+  "get code": "احصل على الرمز",
+  "Reset Code": "رمز إعادة التعيين",
+
+  "Register now": "سجل الآن",
+  "Name": "الاسم",
+
+  "phone number": "رقم الهاتف",
+  "Register": "التسجيل",
+
+  "description": "يجب أن تكون كلمة المرور:\n- مكونة من 8 أحرف على الأقل\n- تحتوي على حرف كبير واحد\n- حرف صغير واحد\n- رقم\nوحرف خاص '@#$%^&+='",
 
   "Popular category": "الفئات الشائعة",
 
@@ -54,23 +50,42 @@
   "Shipping Address:": "عنوان الشحن:",
   "View details": "عرض التفاصيل",
 
-  "Shopping Cart": "عربة التسوق",
+  "Shopping Cart": "سلة التسوق",
   "Order summary": "ملخص الطلب",
   "Total items": "إجمالي العناصر",
-  "Total price": "السعر الإجمالي",
+  "Total price": "إجمالي السعر",
 
-  "Check Out!": "الدفع!",
+  "Check Out!": "إتمام الشراء!",
   "address": "العنوان",
   "phone": "الهاتف",
-  "city": "المدينة",
+  "city": "المحافظه",
   "Pay with Credit Card": "الدفع ببطاقة الائتمان",
   "Cash on delivery": "الدفع عند الاستلام",
   "Proceed to Checkout": "الانتقال إلى الدفع",
-  "Continue Shopping": "مواصلة التسوق",
+  "Continue Shopping": "متابعة التسوق",
   "or": "أو",
   "add to cart": "أضف إلى السلة",
   "remove": "إزالة",
   "Payment Method": "طريقة الدفع",
-  "Empty Cart": "إفراغ السلة"
-
+  "Empty Cart": "سلة التسوق فارغة",
+  "Date": "التاريخ",
+  "Order Details": "تفاصيل الطلب",
+  "Delivery": "التسليم",
+  "Payment": "الدفع",
+  "Quantity": "الكمية",
+  "Title": "العنوان",
+  "Our Brands": "علاماتنا التجارية",
+  "Our Categories": "فئاتنا",
+  "Your cart is empty": "سلة التسوق فارغة",
+  "No items in your wishlist": "لا توجد عناصر في قائمة الأمنيات الخاصة بك",
+  "Rating": "التقييم",
+  "Remove": "إزالة",
+  "Get the fresh cart app": "احصل على تطبيق Fresh Cart",
+  "We will send you the link to download the app": "سوف نرسل لك رابط لتحميل التطبيق",
+  "Share App Link": "مشاركة رابط التطبيق",
+  "Payment partners": "شركاء الدفع",
+  "Get deliveries with Fresh Cart": "احصل على توصيلات مع Fresh Cart",
+  "This is not a valid egyptian address followed by your zip code": "هذا ليس عنوانًا مصريًا صالحًا متبوعًا بالرمز البريدي",
+  "example: 1234 street name, Cairo, Egypt, 12345": "مثال: 1234 اسم الشارع، القاهرة، مصر، 12345",
+  "This is not a valid egyptian phone number": "هذا ليس رقم هاتف مصري صالح"
 }

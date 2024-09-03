@@ -1,7 +1,7 @@
 <div
   class="w-3/4 my-9 h-[60dvh] m-auto flex flex-col flex-nowrap justify-center"
 >
-  <h1 class="text-center text-emerald-700 font-semibold text-3xl">login!</h1>
+  <h1 class="text-center text-emerald-700 font-semibold text-3xl">{{'login'| translate}}!</h1>
 
   <form [formGroup]="loginForm" (ngSubmit)="submitEvent()" class="mt-5">
     <!-- Error check -->
@@ -24,15 +24,15 @@
       <label
         for="floating_email"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Email address</label
+        >{{'Email address' | translate}}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (loginForm.get('email')?.touched &&
         loginForm.get('email')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">{{'This is a required field'| translate}}</p>
         } @else if (loginForm.get('email')?.errors?.['email']) {
-        <p class="text-sm py-2 px-3">This is not a valid email</p>
+        <p class="text-sm py-2 px-3">{{'This is not a valid email'| translate}}</p>
         <p class="text-sm py-2 px-3">example&#64;example.com</p>
         }
       </div>
@@ -52,22 +52,17 @@
       <label
         for="floating_password"
         class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-emerald-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >Password</label
+        >{{'Password'| translate}}</label
       >
       <!-- validation -->
       <div class="bg-red-400 rounded-lg my-3">
         @if (loginForm.get('password')?.touched &&
         loginForm.get('password')?.errors?.['required']) {
-        <p class="text-sm py-2 px-3">This is a required field</p>
+        <p class="text-sm py-2 px-3">{{"This is a required field" | translate}}</p>
         } @else if (loginForm.get('password')?.touched &&
         loginForm.get('password')?.errors?.['pattern']) {
         <p class="text-sm py-2 px-3">
-          The password should be at-least <br />
-          -8 characters long <br />
-          - 1 capital letter <br />
-          - 1 small letter <br />
-          - a number <br />
-          and a special character "&#64;#$%^&+="
+          {{'Password description' | translate}}
         </p>
         }
       </div>
@@ -77,7 +72,7 @@
       <a
         routerLink="/reset-password"
         class="text-blue-600 underline hover:cursor-pointer hover:text-emerald-700 transition-all duration-300 ease-in-out"
-        >Forget Password?</a
+        >{{"Forget Password?"| translate}}</a
       >
     </div>
 
@@ -90,7 +85,7 @@
       @if (Loading) {
       <span><i class="fa-solid fa-spinner fa-spin"></i></span>
       } @else {
-      <span>login</span>
+      <span>{{"login"| translate}}</span>
       }
     </button>
     
