@@ -9,7 +9,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((err) => {
       _ToastrService.error(err.error.message, err.error.status, {
-        timeOut: 1000,
+        timeOut: 3000,
         progressBar: true,
         closeButton: true,
         positionClass: 'toast-bottom-right',
