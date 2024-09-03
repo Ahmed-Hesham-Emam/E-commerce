@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     private _TranslationsService: TranslationsService,
     @Inject(PLATFORM_ID) platformId: Object,
     public _AuthService: AuthService,
-    private _CartService:CartService
+    private _CartService: CartService
   ) {
     this.platformId = platformId;
     if (isPlatformBrowser(this.platformId)) {
@@ -43,18 +43,19 @@ export class NavbarComponent implements OnInit, DoCheck {
         this.icon = 'assets/images/flag-icon-BG.png';
       }
 
-      this._CartService.getCart().subscribe({
-        next: (res) => {
-          // console.log(res.data);
-  
-          this.sumResult = 0;
-          for (let i = 0; i < res.data.products.length; i++) {
-            this.sumResult += res.data.products[i].count;
-          }
-          localStorage.setItem('sum', this.sumResult.toString());
-        }
-      });
+      if (localStorage.getItem('userToken') !== '') {
+        this._CartService.getCart().subscribe({
+          next: (res) => {
+            // console.log(res.data);
 
+            this.sumResult = 0;
+            for (let i = 0; i < res.data.products.length; i++) {
+              this.sumResult += res.data.products[i].count;
+            }
+            localStorage.setItem('sum', this.sumResult.toString());
+          },
+        });
+      }
     }
   }
 
