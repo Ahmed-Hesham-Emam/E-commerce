@@ -2,16 +2,20 @@
   <h2
     class="text-xl my-5 font-semibold text-emerald-600 sm:text-2xl text-center"
   >
-    {{'Order Details' | translate}}
+    {{ "Order Details" | translate }}
   </h2>
 
   <div class="mx-auto w-full mb-7">
     @if (selectedOrder) {
-    <div class="mt-6 flow-root border-2 px-3 py-5 rounded-lg sm:mt-8">
+    <div
+      class="mt-6 flow-root border-2 px-3 py-5 rounded-lg sm:mt-8 hover:shadow-emerald-400 hover:shadow-lg hover:bg-gray-100 transition-all duration-500 ease-in-out cursor-default"
+    >
       <div class="divide-y divide-gray-200">
         <div class="flex flex-wrap gap-x-4 gap-y-4 py-6">
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-            <dt class="text-base font-medium text-gray-500">{{'Order ID' | translate}} :</dt>
+            <dt class="text-base font-medium text-gray-500">
+              {{ "Order ID" | translate }} :
+            </dt>
 
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               <a>{{ selectedOrder.id }}</a>
@@ -19,7 +23,9 @@
           </dl>
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-            <dt class="text-base font-medium text-gray-500">{{'Price' | translate}} :</dt>
+            <dt class="text-base font-medium text-gray-500">
+              {{ "Price" | translate }} :
+            </dt>
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               {{ selectedOrder.totalOrderPrice }} EGP
             </dd>
@@ -27,7 +33,7 @@
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
             <dt class="text-base font-medium text-gray-500">
-              {{'Payment Method' | translate}} :
+              {{ "Payment Method" | translate }} :
             </dt>
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               {{ selectedOrder.paymentMethodType }}
@@ -35,7 +41,9 @@
           </dl>
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-            <dt class="text-base font-medium text-gray-500">{{'Date' | translate}} :</dt>
+            <dt class="text-base font-medium text-gray-500">
+              {{ "Date" | translate }} :
+            </dt>
 
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               <a>{{ selectedOrder.createdAt.split("T")[0] }}</a>
@@ -43,7 +51,9 @@
           </dl>
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-            <dt class="text-base font-medium text-gray-500">{{'Delivery' | translate}} :</dt>
+            <dt class="text-base font-medium text-gray-500">
+              {{ "Delivery" | translate }} :
+            </dt>
 
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               @if (selectedOrder.isDelivered === true) {
@@ -55,7 +65,9 @@
           </dl>
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
-            <dt class="text-base font-medium text-gray-500">{{'Payment' | translate}} :</dt>
+            <dt class="text-base font-medium text-gray-500">
+              {{ "Payment" | translate }} :
+            </dt>
 
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               @if (selectedOrder.isPaid === true) {
@@ -68,7 +80,7 @@
 
           <dl class="w-1/2 sm:w-1/4 lg:w-auto lg:flex-1">
             <dt class="text-base font-medium text-gray-500">
-              {{'Shipping Address:' | translate}}
+              {{ "Shipping Address:" | translate }}
             </dt>
             <dd class="mt-1.5 text-base font-semibold text-gray-900">
               {{ selectedOrder.shippingAddress.details }}
@@ -82,7 +94,9 @@
 
   @for (item of cartItems ; track $index) {
 
-  <div class="mx-auto w-full lg:max-w-2xl xl:max-w-4xl mb-7">
+  <div
+    class="mx-auto w-full lg:max-w-2xl xl:max-w-4xl mb-7 hover:shadow-emerald-400 hover:shadow-lg hover:bg-gray-100 transition-all duration-500 ease-in-out cursor-default"
+  >
     <div class="space-y-6">
       <div
         class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:p-6"
@@ -100,7 +114,7 @@
 
           <div class="order-3 flex">
             <p class="text-base font-bold text-start text-gray-900">
-              {{'Quantity' | translate}} :
+              {{ "Quantity" | translate }} :
             </p>
 
             <div>
@@ -119,14 +133,18 @@
           </div>
 
           <div class="order-4 flex">
-            <p class="text-base font-bold text-start text-gray-900 pe-2">{{'Price' | translate}} :</p>
+            <p class="text-base font-bold text-start text-gray-900 pe-2">
+              {{ "Price" | translate }} :
+            </p>
             <p class="text-base font-bold text-gray-900">
               {{ item.price }} EGP
             </p>
           </div>
 
           <div class="order-2 flex">
-            <p class="text-base text-start font-bold text-gray-900 pe-2">{{'Title' |translate}} :</p>
+            <p class="text-base text-start font-bold text-gray-900 pe-2">
+              {{ "Title" | translate }} :
+            </p>
 
             <div>
               <p class="font-medium text-gray-900">{{ item.product.title }}</p>

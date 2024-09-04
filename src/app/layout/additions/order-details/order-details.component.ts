@@ -3,45 +3,46 @@ import { NgIf } from '@angular/common';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
 import { CartItem, OrderHistory } from '../../../shared/interfaces/allproducts';
 import { TranslateModule } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
   standalone: true,
-  imports: [NgIf , TranslateModule],
+  imports: [NgIf, TranslateModule],
   templateUrl: './order-details.component.html',
   styleUrl: './order-details.component.scss',
 })
-export class OrderDetailsComponent implements OnInit  {
+export class OrderDetailsComponent implements OnInit {
   selectedOrder: OrderHistory | null = null;
   cartItems!: CartItem[];
+  idCheck!: string;
 
-  constructor(private _AllordersService: AllordersService) {}
-
+  constructor(
+    private _AllordersService: AllordersService,
+    private _Router: Router
+  ) {}
 
   ngOnInit(): void {
-    // this._AllordersService.selectedOrder$.subscribe((res) => {
-    //   this.selectedOrder = res!;
-    //   console.log((this.cartItems = res?.cartItems || []));
-
-    //   console.log('Received order:', res);
-    // });
     this.orderDetails();
   }
 
   orderDetails() {
-    if (typeof localStorage !== 'undefined') {
-      // Try to get the saved order from local storage
-      const savedOrder = localStorage.getItem('selectedOrder');
+    this.idCheck = this._Router.url.split('/')[2];
 
-      if (savedOrder) {
-        this.selectedOrder = JSON.parse(savedOrder);
-        this.cartItems = this.selectedOrder?.cartItems! || [];
-        console.log('Received order from local storage:', this.selectedOrder);
-      }
-    }
+    this._AllordersService.OrderHistory().subscribe({
+      next: (orders) => {
+        orders.forEach((order) => {
+          if (this.idCheck == order._id) {
+            this.selectedOrder = order;
+            this.cartItems = order.cartItems;
+          }
+        });
+
+        // console.log('Received orders:', orders);
+      },
+      error: (error) => {
+        console.error('Error fetching orders:', error);
+      },
+    });
   }
-
-
-
-
 }

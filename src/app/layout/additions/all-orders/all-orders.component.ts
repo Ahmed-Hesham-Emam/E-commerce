@@ -32,7 +32,7 @@ export class AllOrdersComponent implements OnInit {
       this.orderHistory = res;
       this.orderHistory.reverse();
 
-      console.log(this.orderHistory);
+      // console.log(this.orderHistory);
     });
   }
 

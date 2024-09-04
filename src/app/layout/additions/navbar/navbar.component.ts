@@ -4,15 +4,12 @@ import { AuthService } from '../../../shared/services/auth/auth.service';
 import { isPlatformBrowser } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslationsService } from '../../../shared/services/tranlations/translations.service';
-import { cart } from '../../../shared/interfaces/cart';
 import { CartService } from '../../../shared/services/cart/cart.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink, RouterLinkActive, TranslateModule],
-  //Just becuse Angular does't like my icons wither it's inside <i> or <svg> it just hates font Awesome icons i guess
-  host: { ngSkipHydration: 'true' },
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })

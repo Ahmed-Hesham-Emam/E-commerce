@@ -47,12 +47,10 @@
             {{ product.title.split(" ").splice(0, 3).join(" ") }}
           </h2>
           <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {{ product.description.split(" ").splice(0, 20).join(" ") }}...
+            {{ product.description.split(" ").splice(0, 4).join(" ") }}...
           </p>
           <div class="flex justify-between">
-            <p>
-              {{ "Price" | translate }} : {{ product.price }} EGP
-            </p>
+            <p>{{ "Price" | translate }} : {{ product.price }} EGP</p>
 
             <p>
               {{ "Rating" | translate }} : {{ product.ratingsAverage }}

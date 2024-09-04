@@ -33,8 +33,6 @@ import { FormsModule } from '@angular/forms';
     SearchPipe,
     FormsModule,
   ],
-  //Just becuse Angular does't like my icons wither it's inside <i> or <svg> it just hates font Awesome icons i guess
-  host: { ngSkipHydration: 'true' },
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -87,14 +85,8 @@ export class HomeComponent implements OnInit {
           this.productList = [...this.productList, ...res.data];
 
           this.totalPages = res.metadata.numberOfPages;
-          this.pages = [];
-          for (let i = 1; i <= this.totalPages; i++) {
-            this.pages.push(i);
-          }
-          console.log(this.productList);
-        },
-        error: (err) => {
-          // console.log(err);
+          this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+          // console.log(this.productList);
         },
       });
   }
@@ -102,10 +94,10 @@ export class HomeComponent implements OnInit {
   addToCart(id: string) {
     this.addCartSubscription = this._CartService.addToCart(id).subscribe({
       next: (res) => {
-        this.sumResult = 0;
-        for (let i = 0; i < res.data.products.length; i++) {
-          this.sumResult += res.data.products[i].count;
-        }
+        this.sumResult = res.data.products.reduce(
+          (sum: number, product: any) => sum + product.count,
+          0
+        );
         localStorage.setItem('sum', this.sumResult.toString());
         this.toastr.success(res.message, res.status, {
           timeOut: 1500,
@@ -121,9 +113,7 @@ export class HomeComponent implements OnInit {
     this.wishlistArray = [];
     this._WishlistService.getWishlist().subscribe({
       next: (res) => {
-        for (let i = 0; i < res.data.length; i++) {
-          this.wishlistArray.push(res.data[i]._id);
-        }
+        this.wishlistArray = res.data.map((item) => item._id);
         // console.log(this.wishlistArray);
       },
     });
