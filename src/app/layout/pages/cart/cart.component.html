@@ -45,7 +45,8 @@
                 >
                   <!-- QUANTATIY CHANGE -->
                   <div class="flex items-center">
-                    <!-- SUBTRACT -->
+
+                    <!-- SUBTRACT by 1 -->
                     <button
                       type="button"
                       (click)="
@@ -74,18 +75,18 @@
                       </svg>
                     </button>
 
-                    <!-- QUANTATIY -->
+                    <!-- Manual Quantatiy input -->
                     <input
                       type="text"
                       id="counter-input"
                       data-input-counter
-                      class="w-10 cursor-default shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0"
+                      class="w-14 shrink-0 border border-gray-300 rounded-xl focus:shadow-lg focus:shadow-emerald-400 mx-2 bg-transparent text-center text-sm font-medium text-gray-900 focus:border-emerald-700 focus:outline-none focus:ring-emerald-700"
                       placeholder=""
                       value="{{ item.count }}"
                       required
-                      readonly
+                      (click)="manualItemQuantityUpdate(item.product._id)"
                     />
-                    <!-- ADD -->
+                    <!-- ADD by 1-->
                     <button
                       type="button"
                       (click)="
@@ -113,12 +114,16 @@
                         />
                       </svg>
                     </button>
+
                   </div>
+
+                  <!-- total price/item -->
                   <div class="text-end md:order-4 md:w-32">
                     <p class="text-base font-bold text-gray-900">
-                      {{ item.price }} EGP
+                      {{ item.price * item.count}} EGP
                     </p>
                   </div>
+
                 </div>
 
                 <div

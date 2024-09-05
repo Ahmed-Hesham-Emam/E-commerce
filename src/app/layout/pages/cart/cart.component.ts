@@ -79,6 +79,31 @@ export class CartComponent implements OnInit {
     }
   }
 
+  manualItemQuantityUpdate(product_id: string) {
+    document.getElementById('counter-input')?.addEventListener('blur', (e) => {
+      let count = JSON.parse((e.target as HTMLInputElement).value);
+      // console.log(count);
+
+      if (count <= 0) {
+        this.removecartItem(product_id);
+      } else {
+        this.updateSubscribtion = this._CartService
+          .updateItemsQuantity(product_id, count.toString())
+          .subscribe({
+            next: (res) => {
+              // console.log(res);
+              this.sumResult = 0;
+              for (let i = 0; i < res.data.products.length; i++) {
+                this.sumResult += res.data.products[i].count;
+              }
+              localStorage.setItem('sum', this.sumResult.toString());
+              this.data = res.data;
+            },
+          });
+      }
+    });
+  }
+
   emptyCart() {
     this.emptySubscribtion = this._CartService.emptyCart().subscribe({
       next: (res) => {
