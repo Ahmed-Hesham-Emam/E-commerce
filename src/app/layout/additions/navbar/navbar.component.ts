@@ -56,7 +56,7 @@ export class NavbarComponent implements OnInit, DoCheck {
     }
   }
 
-  ngDoCheck(): void {
+  ngDoCheck() {
     if (isPlatformBrowser(this.platformId)) {
       this.total = JSON.parse(localStorage.getItem('sum') || '0');
     }

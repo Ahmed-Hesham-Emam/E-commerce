@@ -3,7 +3,7 @@ import { NgIf } from '@angular/common';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
 import { CartItem, OrderHistory } from '../../../shared/interfaces/allproducts';
 import { TranslateModule } from '@ngx-translate/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -19,15 +19,25 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(
     private _AllordersService: AllordersService,
-    private _Router: Router
+    private _Router: Router,
+    private _ActivatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     this.orderDetails();
   }
 
   orderDetails() {
-    this.idCheck = this._Router.url.split('/')[2];
+    this._ActivatedRoute.params.subscribe((p) => {
+      this.idCheck = p['orderId'];
+    });
+    console.log(this.idCheck);
+
+    // this.idCheck = this._Router.url.split('/')[2];
 
     this._AllordersService.OrderHistory().subscribe({
       next: (orders) => {

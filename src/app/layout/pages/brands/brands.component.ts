@@ -51,12 +51,20 @@ export class BrandsComponent {
   loadPage(page: number) {
     this.currentPage = page;
     this.getAllBrands(this.currentPage);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 
   loadNextPage() {
     if (this.currentPage <= this.totalPages) {
       this.currentPage += 1;
       this.getAllBrands(this.currentPage);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
       // console.log(this.currentPage);
     }
   }
@@ -65,6 +73,10 @@ export class BrandsComponent {
     if (this.currentPage >= this.totalPages) {
       this.currentPage -= 1;
       this.getAllBrands(this.currentPage);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
   }
 }

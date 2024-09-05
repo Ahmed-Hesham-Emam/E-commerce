@@ -66,6 +66,11 @@ export class ProductDetailsComponent implements OnInit {
         const refinedID = params.get('id');
         this.getProductsById(refinedID!);
       });
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
 
     if (isPlatformBrowser(this.platformId)) {

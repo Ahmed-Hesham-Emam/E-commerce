@@ -151,12 +151,21 @@ export class HomeComponent implements OnInit {
   loadPage(page: number) {
     this.currentPage = page;
     this.getAllProducts(this.currentPage);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 
   loadNextPage() {
     if (this.currentPage <= this.totalPages) {
       this.currentPage += 1;
       this.getAllProducts(this.currentPage);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
       // console.log(this.currentPage);
     }
   }
@@ -165,6 +174,10 @@ export class HomeComponent implements OnInit {
     if (this.currentPage >= this.totalPages) {
       this.currentPage -= 1;
       this.getAllProducts(this.currentPage);
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     }
   }
 }
