@@ -1,4 +1,4 @@
 export enum Enviroment {
   BaseURL = 'https://ecommerce.routemisr.com',
-  BaseCheckOutURL = 'http://localhost:4200'
+  BaseCheckOutURL = 'https://e-commerce-lyart-five.vercel.app/',
 }
