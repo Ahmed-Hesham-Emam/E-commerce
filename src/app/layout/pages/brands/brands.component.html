@@ -2,7 +2,7 @@
   <h2
     class="text-center text-base xl:text-md 2xl:text-3xl font-semibold text-emerald-700 my-5"
   >
-    {{'Our Brands' | translate}}
+    {{ "Our Brands" | translate }}
   </h2>
   <div
     class="grid grid-cols-1 md:grid-cols-3 justify-between items-center gap-y-3 gap-x-5"
@@ -34,37 +34,43 @@
   <!-- pagination -->
   <div class="flex justify-center items-center flex-nowrap p-3">
     <button
+      title="go to Previous Page"
       [disabled]="currentPage == 1"
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPrevPage()"
     >
-    @if(this.rtl){
+      @if(this.rtl){
       <i class="fa-solid fa-arrow-right"></i>
       } @if(!this.rtl){
       <i class="fa-solid fa-arrow-left"></i>
       }
+      <span class="sr-only"> go to Previous page</span>
     </button>
 
     @for(page of pages ; track $index) {
     <button
+      title="go to page {{ page }}"
       [disabled]="currentPage == page"
       class="disabled:cursor-default disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPage(page)"
     >
       {{ page }}
+      <span class="sr-only">go to page {{ page }}</span>
     </button>
     }
 
     <button
       [disabled]="currentPage == totalPages"
+      title="go to Next Page"
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadNextPage()"
     >
-    @if(this.rtl){
+      @if(this.rtl){
       <i class="fa-solid fa-arrow-left"></i>
       } @if(!this.rtl){
       <i class="fa-solid fa-arrow-right"></i>
       }
+      <span class="sr-only"> go to Next page</span>
     </button>
   </div>
 </div>

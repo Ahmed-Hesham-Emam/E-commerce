@@ -2,6 +2,7 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   provideRouter,
   RouterModule,
+  withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
 
@@ -33,7 +34,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
     provideToastr(),
-    provideRouter(routes, withViewTransitions()),
+    provideRouter(routes, withViewTransitions() , withInMemoryScrolling({scrollPositionRestoration: 'top'})),
     provideClientHydration(),
 
     // importProvidersFrom(HttpClientModule),

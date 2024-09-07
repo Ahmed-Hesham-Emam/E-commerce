@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
 
         window.addEventListener('scroll', () => {
           if (window.scrollY > 1500) {
-            console.log('scrolling');
+            // console.log('scrolling');
 
             toTopButton?.classList.remove('opacity-0');
           } else {
@@ -71,4 +71,5 @@ export class AppComponent implements OnInit {
       behavior: 'smooth',
     });
   }
+  
 }

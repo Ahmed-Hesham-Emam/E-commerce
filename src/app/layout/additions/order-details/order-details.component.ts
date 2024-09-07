@@ -3,7 +3,7 @@ import { NgIf } from '@angular/common';
 import { AllordersService } from '../../../shared/services/allorders/allorders.service';
 import { CartItem, OrderHistory } from '../../../shared/interfaces/allproducts';
 import { TranslateModule } from '@ngx-translate/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-order-details',
@@ -19,7 +19,6 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(
     private _AllordersService: AllordersService,
-    private _Router: Router,
     private _ActivatedRoute: ActivatedRoute
   ) {}
 

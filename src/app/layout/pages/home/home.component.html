@@ -91,8 +91,11 @@
   </div>
 
   <!-- pagination -->
+
+  <!-- load previous page -->
   <div class="flex justify-center items-center flex-nowrap p-3">
     <button
+      title="go to previous page"
       [disabled]="currentPage == 1"
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPrevPage()"
@@ -102,19 +105,25 @@
       } @if(!this.rtl){
       <i class="fa-solid fa-arrow-left"></i>
       }
+      <span class="sr-only">go to previous page</span>
     </button>
 
+    <!-- get all pages numbers -->
     @for(page of pages ; track $index) {
     <button
+      title="go to page {{ page }}"
       [disabled]="currentPage == page"
       class="disabled:cursor-default disabled:bg-gray-600 bg-emerald-800 py-2 px-3 me-2 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadPage(page)"
     >
       {{ page }}
+      <span class="sr-only">go to {{page}}</span>
     </button>
     }
 
+    <!-- load next page -->
     <button
+    title="go to next page"
       [disabled]="currentPage == totalPages"
       class="disabled:bg-gray-600 bg-emerald-800 py-2 px-3 rounded-xl text-white hover:bg-emerald-600 focus:bg-emerald-950 transition-all duration-300 ease-in-out"
       (click)="loadNextPage()"
@@ -124,6 +133,7 @@
       } @if(!this.rtl){
       <i class="fa-solid fa-arrow-right"></i>
       }
+      <span class="sr-only">go to next page</span>
     </button>
   </div>
 </div>

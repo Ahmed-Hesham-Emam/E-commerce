@@ -85,6 +85,7 @@ export class HomeComponent implements OnInit {
           this.productList = [...this.productList, ...res.data];
 
           this.totalPages = res.metadata.numberOfPages;
+          
           this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
           // console.log(this.productList);
         },
